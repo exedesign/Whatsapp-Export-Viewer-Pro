@@ -38,7 +38,6 @@ npm install
 npm run dev
 ```
 
-
 4. Open [http://localhost:5678](http://localhost:5678) in your browser
 
 ## Usage
@@ -60,15 +59,6 @@ npm run dev
    - Use the search bar to find specific messages
    - Use the date picker to jump to specific dates
    - Scroll through messages chronologically
-
-## Tech Stack
-
-- **Framework**: Next.js 13
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Date Handling**: date-fns
-- **Icons**: Lucide React
 
 ## Project Structure
 

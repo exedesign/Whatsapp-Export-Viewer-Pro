@@ -55,7 +55,7 @@ WhatsApp sohbet yedeklerinizi görüntülemenizi ve analiz etmenizi sağlayan mo
 
 ```bash
 # Repository'yi klonlayın | Clone the repository
-git clone https://github.com/fatiheke/whatsapp-chat-viewer-tr.git
+git clone https://github.com/exedesign/whatsapp-chat-viewer-tr.git
 cd whatsapp-chat-viewer-tr
 
 # Bağımlılıkları yükleyin | Install dependencies
@@ -244,8 +244,8 @@ Bu projeyi beğendiyseniz | If you like this project:
 ## 📞 İletişim | Contact
 
 - **Geliştirici | Developer**: Fatih Eke
-- **GitHub**: [@fatiheke](https://github.com/fatiheke)
-- **Proje Link | Project Link**: [whatsapp-chat-viewer-tr](https://github.com/fatiheke/whatsapp-chat-viewer-tr)
+- **GitHub**: [@exedesign](https://github.com/exedesign)
+- **Proje Link | Project Link**: [whatsapp-chat-viewer-tr](https://github.com/exedesign/whatsapp-chat-viewer-tr)
 
 ---
 

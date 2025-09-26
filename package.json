@@ -4,13 +4,13 @@
   "private": false,
   "description": "Modern WhatsApp chat viewer with Turkish localization and advanced features. View, analyze and search your WhatsApp chat exports offline.",
   "author": "Fatih Eke <fatiheke@gmail.com>",
-  "homepage": "https://github.com/fatiheke/whatsapp-chat-viewer-tr",
+  "homepage": "https://github.com/exedesign/whatsapp-chat-viewer-tr",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fatiheke/whatsapp-chat-viewer-tr.git"
+    "url": "https://github.com/exedesign/whatsapp-chat-viewer-tr.git"
   },
   "bugs": {
-    "url": "https://github.com/fatiheke/whatsapp-chat-viewer-tr/issues"
+    "url": "https://github.com/exedesign/whatsapp-chat-viewer-tr/issues"
   },
   "keywords": [
     "whatsapp",

@@ -16,12 +16,19 @@ export function ChatHeader({ onSearch, onDateSelect }: ChatHeaderProps) {
   const [date, setDate] = useState<Date>();
 
   return (
-    <div className="sticky top-0 z-10 bg-[#202C33] p-4 border-b border-[#313D45]">
-      <div className="flex gap-2">
+    <div className="sticky top-0 z-10 bg-[#202C33] border-b border-[#313D45]">
+      {/* Header with creator info */}
+      <div className="px-4 py-2 bg-[#111B21] text-center">
+        <h1 className="text-lg font-semibold text-white">WhatsApp Sohbet Görüntüleyici</h1>
+        <p className="text-xs text-gray-400">Yaratıcı: Fatih Eke © 2025</p>
+      </div>
+      
+      <div className="p-4">
+        <div className="flex gap-2">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
-            placeholder="Search messages..."
+            placeholder="Mesajlarda ara..."
             className="pl-9 bg-[#2A3942] border-none text-white"
             onChange={(e) => onSearch(e.target.value)}
           />
@@ -30,7 +37,7 @@ export function ChatHeader({ onSearch, onDateSelect }: ChatHeaderProps) {
           <PopoverTrigger asChild>
             <Button variant="outline" className="bg-[#2A3942] border-none text-white">
               <CalendarIcon className="h-4 w-4 mr-2" />
-              Jump to date
+              Tarihe Git
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0">
@@ -45,6 +52,7 @@ export function ChatHeader({ onSearch, onDateSelect }: ChatHeaderProps) {
             />
           </PopoverContent>
         </Popover>
+        </div>
       </div>
     </div>
   );

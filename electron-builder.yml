@@ -1,0 +1,32 @@
+appId: com.exedesign.whatsappchatviewertr
+productName: "WhatsApp Chat Viewer TR"
+directories:
+  app: .electron-app
+  output: dist
+files:
+  - "**/*"
+extraResources:
+  - from: build/icon.ico
+    to: icon.ico
+win:
+  target:
+    - target: nsis
+      arch: x64
+    - target: portable
+      arch: x64
+  icon: build/icon.ico
+  signAndEditExecutable: false
+nsis:
+  oneClick: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: "WhatsApp Chat Viewer TR"
+  uninstallDisplayName: "WhatsApp Chat Viewer TR"
+  deleteAppDataOnUninstall: false
+portable:
+  artifactName: "${productName}-Portable-${version}.${ext}"
+extraMetadata:
+  main: main.js

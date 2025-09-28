@@ -1,10 +1,29 @@
-const { app, BrowserWindow, Menu, dialog, shell } = require('electron');
+const { app, BrowserWindow, Menu, dialog, shell, nativeImage } = require('electron');
 const path = require('path');
 const https = require('https');
 const pkg = require('./package.json');
 const isDev = process.env.NODE_ENV === 'development';
 
 let mainWindow;
+
+function resolveAppIcon() {
+  // Olası konumlar: build içinde paketleme anında, root'a kopyalanmış, portable root, asar dışı
+  const candidates = [
+    path.join(process.cwd(), 'icon.ico'),
+    path.join(__dirname, 'icon.ico'),
+    path.join(__dirname, '..', 'icon.ico'),
+    path.join(process.resourcesPath || '', 'icon.ico')
+  ].filter(Boolean);
+  for (const p of candidates) {
+    try {
+      if (require('fs').existsSync(p)) {
+        const img = nativeImage.createFromPath(p);
+        if (!img.isEmpty()) return img;
+      }
+    } catch(_) {}
+  }
+  return undefined; // Electron default icon fallback
+}
 
 // Basit sürüm karşılaştırma (semver ilk iki bölüm önemli: major.minor.patch)
 function compareVersions(a, b) {
@@ -78,6 +97,7 @@ async function checkForUpdates(manual = false) {
 }
 
 function createWindow() {
+  const icon = resolveAppIcon();
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -86,7 +106,7 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
     },
-    icon: path.join(process.cwd(), 'icon.ico')
+    icon
   });
 
   if (isDev) {

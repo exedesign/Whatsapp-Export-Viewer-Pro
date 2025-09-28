@@ -324,3 +324,34 @@ npm run installer
 ---
 
 </div>
+
+## 🔄 Otomatik Güncelleme | Auto Update (Basit Kontrol)
+
+Bu proje tam otomatik (arka planda indirip kuran) bir güncelleme yerine hafif bir "sürüm denetimi" mekanizması içerir.
+
+### Nasıl Çalışır?
+- Uygulama açıldıktan ~3 saniye sonra (production modda) GitHub Releases üzerinden son yayımlanan etiketi çeker.
+- Eğer mevcut sürümden (package.json) daha yeni bir tag bulunursa bilgi kutusu gösterir.
+- Kullanıcı "İndir" butonuna tıklarsa varsayılan tarayıcıda ilgili Release sayfası açılır.
+- Manuel tetikleme için menüde: Dosya → "Güncellemeleri Denetle".
+
+### Sürüm Karşılaştırması
+`vMAJOR.MINOR.PATCH` biçimindeki tag adları (ör: `v3.1.0`) karşılaştırılır. Tag önünde `v` harfi opsiyoneldir fakat tavsiye edilir.
+
+### Release Hazırlarken
+1. `git tag vX.Y.Z` & `git push --tags`
+2. GitHub’da Release oluşturun veya tag push sonrası "Draft new release" butonunu kullanın
+3. Release notlarını doldurun (CHANGELOG.md referans alınabilir)
+4. İsteğe bağlı: Portable zip / Installer exe / Onefile exe ekleyin.
+
+### Sınırlar / Notlar
+- Arka planda otomatik indirme ve delta update yapılmaz (Squirrel entegre edilmedi).
+- Ağ hatalarında sessizce devam eder; yalnızca manuel kontrolde hata diyalogu gösterilir.
+- Code signing yoksa bazı Windows SmartScreen uyarıları görülebilir.
+
+### Geliştirme İçin Öneri (İleride)
+- Gerçek auto-updater için: `electron-updater` + GitHub Releases / S3
+- Diferansiyel güncelleme: Squirrel.Windows veya electron-builder publish pipeline
+- İmzalama: Windows için Authenticode sertifikası
+
+---

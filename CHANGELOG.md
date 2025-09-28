@@ -2,6 +2,11 @@
 
 Tüm anlamlı değişiklikler bu dosyada listelenir. Bu proje Semantic Versioning kullanır.
 
+## [Unreleased]
+### Eklendi
+- GitHub Releases tabanlı manuel ve sessiz açılışta otomatik güncelleme denetimi (Electron menü: "Güncellemeleri Denetle")
+
+
 ## [3.1.0] - 2025-09-29
 ### Eklendi
 - Windows için Electron masaüstü paketleme altyapısı

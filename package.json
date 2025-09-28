@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-viewer-tr",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": false,
   "description": "Modern WhatsApp chat viewer with Turkish localization and advanced features. View, analyze and search your WhatsApp chat exports offline.",
   "author": "Fatih Eke <fatiheke@gmail.com>",
@@ -32,7 +32,7 @@
     "electron": "electron .",
     "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5680 && electron .\"",
     "prep-electron": "node scripts/prepare-electron.js",
-    "pack-win-portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --app-version=3.0.0 --icon=icon.ico",
+  "pack-win-portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --app-version=3.1.0 --icon=icon.ico",
     "installer": "npm run pack-win-portable && node scripts/create-installer.js",
     "onefile": "npm run pack-win-portable && powershell -ExecutionPolicy Bypass -File scripts/make-sfx.ps1"
   },

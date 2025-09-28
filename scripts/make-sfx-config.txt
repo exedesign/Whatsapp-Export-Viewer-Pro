@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="WhatsApp Chat Viewer TR"
+BeginPrompt="Uygulama bu klasöre açılacak:"
+RunProgram="WhatsApp Chat Viewer TR.exe"
+;!@InstallEnd@!

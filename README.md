@@ -259,4 +259,68 @@ Bu projeyi beğendiyseniz | If you like this project:
 **Note**: This app functions completely offline and all data is parsed locally in your browser.  
 **Not**: Bu uygulama tamamen çevrimdışı çalışır ve tüm veriler tarayıcınızda yerel olarak işlenir.
 
+---
+
+## 🖥️ Windows Masaüstü (Electron) Paketleme | Windows Desktop Packaging
+
+Uygulamayı bağımsız Windows masaüstü uygulaması olarak paketleyebilirsiniz.
+
+### 🔨 Gerekli Ek Bağımlılıklar | Extra Dev Dependencies
+`electron`, `electron-packager`, `electron-winstaller`, `concurrently`, `wait-on`
+
+Kurulu değilse:
+```bash
+npm install --save-dev electron electron-packager electron-winstaller concurrently wait-on
+```
+
+### 📦 Portable (Klasör) Oluşturma
+```bash
+npm run pack-win-portable
+```
+Çıktı klasörü: `portable/WhatsApp Chat Viewer TR-win32-x64/`
+
+### 🧙 Installer (Setup.exe) Oluşturma
+```bash
+npm run installer
+```
+Oluşan dosyalar: `installer/WhatsAppChatViewerTR-Setup-<version>.exe`
+
+### 📜 Onefile (Self-Extract SFX) Oluşturma
+Önce portable üretir sonra 7-Zip SFX oluşturur (7z.exe PATH'te olmalı):
+```bash
+npm run onefile
+```
+Çıktı: `onefile/WhatsAppChatViewerTR-OneFile.exe`
+
+### 🌐 GitHub Release Yayınlama Önerisi
+1. `npm run pack-win-portable` ve `npm run installer` çalıştır
+2. Portable klasörünü .zip yap: `WhatsAppChatViewerTR-portable.zip`
+3. `WhatsAppChatViewerTR-Setup-<version>.exe` ve (opsiyonel) `WhatsAppChatViewerTR-OneFile.exe` dosyalarını GitHub Releases -> Draft new release ekranına sürükle bırak
+4. Release notlarına özet ekle:
+   - Added: Türkçe arayüz, medya önizleme, portable & installer
+   - Checksums (opsiyonel)
+
+### 🧪 Test Kontrol Listesi | QA Checklist
+- [ ] Portable klasörde exe açılıyor mu?
+- [ ] İnternet kapalıyken sohbet açma başarılı mı? (offline garanti)
+- [ ] Drag & drop ZIP çalışıyor mu?
+- [ ] Medya (jpg/mp4/opus) açılıyor mu?
+- [ ] Installer ile kur → Başlat menüsünden çalışıyor mu?
+- [ ] Uninstall sonrası config/artık dosya kalmıyor mu? (Beklenen: yok)
+- [ ] Onefile exe double-click → hedef klasöre açıp uygulamayı başlatıyor mu?
+
+### 🔧 Özelleştirme (İkon)
+`icon.ico` kök dizindedir. Değiştirmek için aynı isimle güncelleyin ve:
+```bash
+npm run pack-win-portable
+npm run installer
+```
+
+### ⚠️ Notlar
+- Büyük binary dosyalar git deposuna eklenmez (.gitignore). Yalnızca Release Assets olarak yükleyin.
+- Tek dosya SFX memory’den direkt çalıştırmaz; geçici klasöre açar (standart davranış).
+- İsteğe bağlı kod imzalama (code signing) eklenmemiştir.
+
+---
+
 </div>

@@ -1,0 +1,61 @@
+{
+  "name": "whatsapp-chat-viewer-tr",
+  "version": "3.0.0",
+  "private": false,
+  "description": "Modern WhatsApp chat viewer with Turkish localization and advanced features. View, analyze and search your WhatsApp chat exports offline.",
+  "author": "Fatih Eke <fatiheke@gmail.com>",
+  "homepage": "https://github.com/exedesign/whatsapp-chat-viewer-tr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exedesign/whatsapp-chat-viewer-tr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/exedesign/whatsapp-chat-viewer-tr/issues"
+  },
+  "keywords": [
+    "whatsapp",
+    "chat",
+    "viewer",
+    "export",
+    "turkish",
+    "offline",
+    "nextjs",
+    "typescript",
+    "react"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev -p 5680",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5680 && electron .\"",
+    "prep-electron": "node scripts/prepare-electron.js",
+    "pack-win-portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --app-version=3.0.0 --icon=icon.ico",
+    "installer": "npm run pack-win-portable && node scripts/create-installer.js",
+    "onefile": "npm run pack-win-portable && powershell -ExecutionPolicy Bypass -File scripts/make-sfx.ps1"
+  },
+  "dependencies": {
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@types/node": "20.6.2",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.446.0",
+    "next": "13.5.1",
+    "postcss": "8.4.30",
+    "react": "18.2.0",
+    "react-day-picker": "^8.10.1",
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "3.3.3",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "5.2.2"
+  }
+}

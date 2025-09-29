@@ -19,6 +19,7 @@ export default function Home() {
   const [attachments, setAttachments] = useState<Map<string, Blob>>(new Map());
   const [mediaUrls, setMediaUrls] = useState<string[]>([]);
   const [dragActive, setDragActive] = useState(false);
+  const dragCounter = useRef(0);
   
   // Loading states
   const [isLoading, setIsLoading] = useState(false);
@@ -136,20 +137,37 @@ export default function Home() {
     }
   };
 
-  // Drag & Drop handlers
+  // Drag & Drop handlers (flicker önleme için dragCounter kullan)
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
+
+    // Sadece dosya sürüklemede overlay göster (metin sürükleme vb. hariç)
+    const hasFiles = Array.from(e.dataTransfer?.types || []).includes('Files');
+
+    if (e.type === 'dragenter') {
+      if (hasFiles) {
+        dragCounter.current += 1;
+        setDragActive(true);
+      }
+    } else if (e.type === 'dragover') {
+      if (hasFiles) {
+        // dragover spam; sadece aktif kalmasını sağla
+        if (!dragActive) setDragActive(true);
+      }
+    } else if (e.type === 'dragleave') {
+      // relatedTarget null ise pencere dışına çıkılmış olabilir
+      dragCounter.current = Math.max(0, dragCounter.current - 1);
+      if (dragCounter.current === 0) {
+        setDragActive(false);
+      }
     }
   };
 
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    dragCounter.current = 0;
     setDragActive(false);
 
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
@@ -195,7 +213,7 @@ export default function Home() {
 
       {/* Drag & Drop Overlay */}
       {dragActive && (
-        <div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center pointer-events-none select-none">
           <div className="bg-[#00A884] rounded-xl p-8 text-white text-center shadow-2xl border-4 border-dashed border-white">
             <Upload className="mx-auto h-16 w-16 mb-4" />
             <h3 className="text-2xl font-bold mb-2">WhatsApp ZIP Dosyasını Bırakın</h3>

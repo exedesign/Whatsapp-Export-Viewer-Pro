@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { X, Download, ZoomIn, ZoomOut } from 'lucide-react';
 
 interface MediaViewerProps {
@@ -13,6 +13,23 @@ interface MediaViewerProps {
 
 export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: MediaViewerProps) {
   const [zoom, setZoom] = useState(1);
+
+  // ESC ile kapatma
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      onClose();
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isOpen, handleKeyDown]);
 
   if (!isOpen) return null;
 
@@ -35,9 +52,12 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
       onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-label={fileName || 'Medya görüntüleyici'}
     >
       <div className="relative w-full h-full flex items-center justify-center p-4">
         {/* Kontrol Butonları */}

@@ -13,11 +13,21 @@ import { Upload } from 'lucide-react';
 import JSZip from 'jszip';
 
 export default function Home() {
-  const [chatData, setChatData] = useState<ChatData | null>(null);
+  interface ChatSession {
+    id: string;
+    fileName: string;
+    chatData: ChatData;
+    mediaFiles: Map<string, string>; // fileName -> objectURL
+    mediaUrls: string[]; // revoke için list
+    addedAt: number;
+  }
+
+  const [chats, setChats] = useState<ChatSession[]>([]);
+  const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
+  const activeChat = chats.find(c => c.id === selectedChatId) || null;
   const [searchQuery, setSearchQuery] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [attachments, setAttachments] = useState<Map<string, Blob>>(new Map());
-  const [mediaUrls, setMediaUrls] = useState<string[]>([]);
+  const [attachments, setAttachments] = useState<Map<string, Blob>>(new Map()); // TODO: Çoklu chat bazlı ayrıştırılabilir
   const [dragActive, setDragActive] = useState(false);
   const dragCounter = useRef(0);
   
@@ -29,16 +39,21 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState<string>('');
   
   // Cleanup blob URLs when component unmounts
+  // Component unmount -> tüm chat object URL temizliği
   useEffect(() => {
     return () => {
-      mediaUrls.forEach(url => URL.revokeObjectURL(url));
+      chats.forEach(chat => chat.mediaUrls.forEach(url => URL.revokeObjectURL(url)));
     };
-  }, [mediaUrls]);
+  }, [chats]);
   
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    await processZipFile(file);
+    const files = event.target.files;
+    if (!files) return;
+    for (const file of Array.from(files)) {
+      if (file.name.toLowerCase().endsWith('.zip')) {
+        await processZipFile(file);
+      }
+    }
   };
 
   const processZipFile = async (file: File) => {
@@ -68,9 +83,7 @@ export default function Home() {
       setLoadingProgress(30);
       setCurrentStep('Medya dosyaları çıkarılıyor...');
 
-      // Cleanup previous URLs
-      mediaUrls.forEach(url => URL.revokeObjectURL(url));
-      const newMediaUrls: string[] = [];
+  const newMediaUrls: string[] = [];
 
       // Extract media files
       const mediaFiles = new Map<string, string>();
@@ -119,11 +132,23 @@ export default function Home() {
       setLoadingProgress(100);
       setCurrentStep('Tamamlandı!');
       
-      setChatData(parsedChat);
-      setMediaUrls(newMediaUrls);
-      
-      // Store media files for cleanup later
-      setAttachments(new Map(Array.from(mediaFiles.entries()).map(([key, value]) => [key, new Blob()])));
+      // Yeni chat oturumu oluştur
+      const newChat: ChatSession = {
+        id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+        fileName: file.name,
+        chatData: parsedChat,
+        mediaFiles,
+        mediaUrls: newMediaUrls,
+        addedAt: Date.now()
+      };
+
+      setChats(prev => {
+        const next = [...prev, newChat];
+        return next.sort((a,b) => a.addedAt - b.addedAt); // ekleme sırası
+      });
+      setSelectedChatId(newChat.id);
+      // attachments state'i güncel (geri uyum) - tüm medya isimleri için placeholder
+      setAttachments(new Map(Array.from(mediaFiles.entries()).map(([key]) => [key, new Blob()])));
       
       // Hide loading after a short delay
       setTimeout(() => {
@@ -169,14 +194,15 @@ export default function Home() {
     e.stopPropagation();
     dragCounter.current = 0;
     setDragActive(false);
-
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      const file = e.dataTransfer.files[0];
-      if (file.name.toLowerCase().endsWith('.zip')) {
-        await processZipFile(file);
-      } else {
-        alert('Lütfen bir ZIP dosyası seçin.');
-      }
+    const list = e.dataTransfer.files;
+    if (!list || list.length === 0) return;
+    const zipFiles = Array.from(list).filter(f => f.name.toLowerCase().endsWith('.zip'));
+    if (zipFiles.length === 0) {
+      alert('Lütfen ZIP dosyaları bırakın.');
+      return;
+    }
+    for (const z of zipFiles) {
+      await processZipFile(z);
     }
   };
 
@@ -189,9 +215,27 @@ export default function Home() {
     element?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
-  const filteredMessages = chatData?.messages.filter(message =>
+  const filteredMessages = activeChat?.chatData.messages.filter(message =>
     message.content.toLowerCase().includes(searchQuery)
   );
+
+  const handleSelectChat = (id: string) => setSelectedChatId(id);
+  const handleRemoveChat = (id: string) => {
+    setChats(prev => {
+      const toRemove = prev.find(c => c.id === id);
+      if (toRemove) {
+        // URL revoke
+        toRemove.mediaUrls.forEach(u => URL.revokeObjectURL(u));
+      }
+      const next = prev.filter(c => c.id !== id);
+      if (next.length === 0) {
+        setSelectedChatId(null);
+      } else if (toRemove && toRemove.id === selectedChatId) {
+        setSelectedChatId(next[next.length - 1].id);
+      }
+      return next;
+    });
+  };
 
   return (
     <div 
@@ -222,13 +266,14 @@ export default function Home() {
         </div>
       )}
 
-      {!chatData ? (
+      {chats.length === 0 ? (
         <div className="h-screen flex flex-col">
           <div className="flex-grow flex items-center justify-center">
             <div className="text-center">
               <Input
                 type="file"
                 accept=".zip"
+                multiple
                 className="hidden"
                 ref={fileInputRef}
                 onChange={handleFileUpload}
@@ -239,7 +284,7 @@ export default function Home() {
                 disabled={isLoading}
               >
                 <Upload className="mr-2 h-4 w-4" />
-                WhatsApp Sohbeti Yükle
+                WhatsApp Sohbet(ler)i Yükle
               </Button>
             </div>
           </div>
@@ -250,62 +295,89 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <>
-          <ChatHeader onSearch={handleSearch} onDateSelect={handleDateSelect} />
-          
-          {/* Chat Statistics */}
-          <div className="container mx-auto max-w-4xl px-4 pt-4">
-            <ChatStatistics chatData={chatData} />
-          </div>
-          
-          {/* Drag & Drop hint for existing chat */}
-          <div className="bg-[#202C33] border-b border-[#313D45] px-4 py-2 text-center">
-            <p className="text-xs text-gray-400">
-              💡 İpucu: Başka bir WhatsApp ZIP dosyasını ekrana sürükleyip bırakarak değiştirebilirsiniz
-            </p>
-          </div>
-          
-          <div className="container mx-auto max-w-4xl p-4">
-            <div className="space-y-4">
-              {filteredMessages?.map((message, index) => {
-                let messageDate;
-                try {
-                  messageDate = message.timestamp.toISOString().split('T')[0];
-                } catch (error) {
-                  console.error('Invalid date:', message.timestamp);
-                  messageDate = 'Invalid Date';
-                }
-                
-                const prevMessage = index > 0 ? filteredMessages[index - 1] : null;
-                let prevMessageDate;
-                try {
-                  prevMessageDate = prevMessage?.timestamp.toISOString().split('T')[0];
-                } catch (error) {
-                  prevMessageDate = 'Invalid Date';
-                }
-                
+        <div className="flex h-screen">
+          {/* Sidebar */}
+          <aside className="w-72 bg-[#202C33] border-r border-[#313D45] flex flex-col">
+            <div className="p-3 border-b border-[#313D45] flex items-center justify-between">
+              <span className="text-sm text-gray-300 font-semibold">Sohbetler ({chats.length})</span>
+              <Button size="sm" variant="outline" className="text-xs" onClick={() => fileInputRef.current?.click()} disabled={isLoading}>Ekle</Button>
+              <Input
+                type="file"
+                accept=".zip"
+                multiple
+                className="hidden"
+                ref={fileInputRef}
+                onChange={handleFileUpload}
+              />
+            </div>
+            <div className="flex-1 overflow-y-auto custom-scrollbar">
+              {chats.map(chat => {
+                const msgCount = chat.chatData.messages.length;
+                const first = chat.chatData.messages[0];
+                const last = chat.chatData.messages[chat.chatData.messages.length - 1];
+                const dateRange = first && last ? `${first.timestamp.toLocaleDateString()} - ${last.timestamp.toLocaleDateString()}` : '';
+                const active = chat.id === selectedChatId;
                 return (
-                  <div key={index}>
-                    {(!prevMessage || messageDate !== prevMessageDate) && (
-                      <div
-                        data-date={messageDate}
-                        className="text-center text-sm text-gray-400 my-4"
-                      >
-                        {messageDate !== 'Invalid Date' 
-                          ? new Date(messageDate).toLocaleDateString()
-                          : 'Unknown Date'}
-                      </div>
-                    )}
-                    <ChatMessage
-                      message={message}
-                      isCurrentUser={message.sender === chatData.currentUser}
-                    />
+                  <div key={chat.id} className={`px-3 py-2 text-xs border-b border-[#2C3940] cursor-pointer group ${active ? 'bg-[#2A3B43]' : 'hover:bg-[#25323A]'}`}
+                    onClick={() => handleSelectChat(chat.id)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="truncate max-w-[140px] text-gray-200" title={chat.fileName}>{chat.fileName}</span>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleRemoveChat(chat.id); }}
+                        className="opacity-0 group-hover:opacity-100 transition text-gray-400 hover:text-red-400"
+                        title="Kaldır"
+                      >✕</button>
+                    </div>
+                    <div className="text-[10px] text-gray-500 mt-1 flex justify-between">
+                      <span>{msgCount} mesaj</span>
+                    </div>
+                    {dateRange && <div className="text-[10px] text-gray-500 mt-0.5">{dateRange}</div>}
                   </div>
                 );
               })}
+              {chats.length === 0 && (
+                <div className="p-4 text-xs text-gray-500">Henüz sohbet yok</div>
+              )}
             </div>
+          </aside>
+          {/* Main panel */}
+          <div className="flex-1 flex flex-col overflow-hidden">
+            {activeChat && (
+              <>
+                <ChatHeader onSearch={handleSearch} onDateSelect={handleDateSelect} />
+                <div className="px-4 pt-2 border-b border-[#313D45] bg-[#202C33]">
+                  <ChatStatistics chatData={activeChat.chatData} />
+                </div>
+                <div className="bg-[#202C33] border-b border-[#313D45] px-4 py-2 text-center text-xs text-gray-400">
+                  💡 Toplu: Birden fazla ZIP dosyasını aynı anda sürükleyebilirsiniz
+                </div>
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                  {filteredMessages?.map((message, index) => {
+                    let messageDate;
+                    try { messageDate = message.timestamp.toISOString().split('T')[0]; } catch { messageDate = 'Invalid Date'; }
+                    const prevMessage = index > 0 ? filteredMessages[index - 1] : null;
+                    let prevMessageDate;
+                    try { prevMessageDate = prevMessage?.timestamp.toISOString().split('T')[0]; } catch { prevMessageDate = 'Invalid Date'; }
+                    return (
+                      <div key={index}>
+                        {(!prevMessage || messageDate !== prevMessageDate) && (
+                          <div data-date={messageDate} className="text-center text-sm text-gray-400 my-4">
+                            {messageDate !== 'Invalid Date' ? new Date(messageDate).toLocaleDateString() : 'Unknown Date'}
+                          </div>
+                        )}
+                        <ChatMessage
+                          message={message}
+                          isCurrentUser={message.sender === activeChat.chatData.currentUser}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

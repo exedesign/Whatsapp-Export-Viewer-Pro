@@ -6,6 +6,25 @@ Tüm anlamlı değişiklikler bu dosyada listelenir. Bu proje Semantic Versionin
 ### Eklendi
 - GitHub Releases tabanlı manuel ve sessiz açılışta otomatik güncelleme denetimi (Electron menü: "Güncellemeleri Denetle")
 
+## [3.2.0] - 2025-09-29
+### Eklendi
+- Çoklu ZIP sohbet yükleme (batch) desteği ve sohbet listesi (participant adlarıyla)
+- Gelişmiş ilerleme modalı: medya ve satır sayaçları, ETA, batch göstergesi, minimize edilebilir yapı
+- Asenkron (chunked) sohbet ayrıştırma ile büyük dosyalarda donma azaltma
+- Batch sonunda tek seferde modal kapanma mantığı (ilk dosya bitince kapanmama düzeltmesi)
+
+### İyileştirme
+- Drag & drop flicker giderildi (dragCounter yaklaşımı)
+- Medya görüntüleyici ESC ile kapanma ve erişilebilirlik dialog attribute'ları
+- Çoklu sohbet arasında hızlı geçişte bellek sızıntısı riskini azaltmak için blob URL revoke temizliği
+
+### Teknik
+- `parseWhatsAppChatAsync` eklendi (chunkSize ve progress callback)
+- Yükleme sırasında hatalı `_chat.txt` bulunmayan ZIP için erken uyarı
+
+### Notlar
+- Bir sonraki adımlar: Lazy media yükleme, sanallaştırılmış mesaj listesi, batch iptal butonu (henüz uygulanmadı)
+
 
 ## [3.1.0] - 2025-09-29
 ### Eklendi

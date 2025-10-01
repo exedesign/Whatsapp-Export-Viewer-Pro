@@ -1,4 +1,4 @@
-# WhatsApp Chat Viewer TR 🇹🇷
+# WhatsApp Chat Viewer
 
 > **Modern, offline WhatsApp chat viewer with Turkish localization and advanced features**
 

@@ -6,6 +6,26 @@ Tüm anlamlı değişiklikler bu dosyada listelenir. Bu proje Semantic Versionin
 ### Eklendi
 - GitHub Releases tabanlı manuel ve sessiz açılışta otomatik güncelleme denetimi (Electron menü: "Güncellemeleri Denetle")
 
+## [3.2.1] - 2025-10-01
+### Eklendi
+- macOS build scriptleri (arm64, x64, universal) ve CI release pipeline
+- Windows portable ZIP artefaktı (CI otomatik üretim)
+- Çoklu dil (TR+EN) açıklaması ve sadeleştirilmiş README giriş bölümü
+
+### Değişti
+- Tema adı: `whatsapp` -> `light` (geriye dönük sınıf uyumluluğu korunuyor)
+- README tamamen yenilendi; bayrak ve TR ibareleri kaldırıldı
+- `package.json` description multi-language & offline odaklı olacak şekilde güncellendi
+- Dark & Deep tema kontrast ve yüzey renkleri yeniden dengelendi
+
+### Düzeltildi
+- İlk yüklemede beyaz flaş (inline tema preload scripti)
+- Koyu temada kalan hard-coded beyaz yüzeyler değişkenlere geçirildi
+
+### Kaldırıldı
+- Google Drive yedekleme özelliği (önceki sürümlerde kod temizliği tamamlandı; dokümantasyon uyumlandı)
+
+
 ## [3.2.0] - 2025-09-29
 ### Eklendi
 - Çoklu ZIP sohbet yükleme (batch) desteği ve sohbet listesi (participant adlarıyla)

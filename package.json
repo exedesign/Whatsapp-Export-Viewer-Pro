@@ -1,8 +1,8 @@
 {
   "name": "whatsapp-chat-viewer-tr",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "private": false,
-  "description": "Modern WhatsApp chat viewer with Turkish localization and advanced features. View, analyze and search your WhatsApp chat exports offline.",
+  "description": "Offline, privacy-first WhatsApp chat viewer & analyzer with multi-language (TR+EN) support, media previews, themes and fast search.",
   "author": "Fatih Eke <fatiheke@gmail.com>",
   "homepage": "https://github.com/exedesign/whatsapp-chat-viewer-tr",
   "repository": {
@@ -32,10 +32,15 @@
     "electron": "electron .",
     "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5680 && electron .\"",
     "prep-electron": "node scripts/prepare-electron.js",
-  "package:portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --icon=icon.ico --app-version=%npm_package_version%",
-  "package:portable:force-icon": "npm run package:portable && node scripts/force-icon.js",
+    "package:portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --icon=icon.ico --app-version=%npm_package_version%",
+    "package:portable:force-icon": "npm run package:portable && node scripts/force-icon.js",
     "package:installer": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& npm run package:portable && electron-builder --win nsis --config electron-builder.yml",
-    "package:onefile": "npm run package:portable && powershell -ExecutionPolicy Bypass -File scripts/make-sfx.ps1"
+    "package:onefile": "npm run package:portable && powershell -ExecutionPolicy Bypass -File scripts/make-sfx.ps1",
+    "package:portable:zip": "powershell -NoLogo -NoProfile -Command Compress-Archive -Force -Path 'portable/WhatsApp Chat Viewer TR-win32-x64/*' -DestinationPath 'dist/WhatsApp-Chat-Viewer-TR-portable-%npm_package_version%.zip'",
+    "package:mac:x64": "npm run prep-electron && electron-builder --mac dmg --x64",
+    "package:mac:arm64": "npm run prep-electron && electron-builder --mac dmg --arm64",
+    "package:mac:universal": "npm run prep-electron && electron-builder --mac dmg --universal",
+    "package:mac": "npm run package:mac:arm64 && npm run package:mac:x64"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.15",
@@ -72,6 +77,8 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "i18next": "^23.16.8",
+    "i18next-browser-languagedetector": "^7.2.2",
     "jszip": "^3.10.1",
     "lucide-react": "^0.446.0",
     "next": "13.5.1",
@@ -79,6 +86,7 @@
     "react": "18.2.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "18.2.0",
+    "react-i18next": "^13.5.0",
     "recharts": "^3.2.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "3.3.3",

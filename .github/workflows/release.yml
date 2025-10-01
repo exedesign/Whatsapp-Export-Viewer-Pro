@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm ci
+      - name: Build portable & installer
+        run: |
+          npm run package:portable
+          npm run package:installer || echo "Installer already produced in previous step"
+      - name: Zip portable folder
+        run: |
+          if (Test-Path 'dist/WhatsApp-Chat-Viewer-TR-portable-$env:npm_package_version.zip') { Remove-Item dist/WhatsApp-Chat-Viewer-TR-portable-$env:npm_package_version.zip }
+          npm run package:portable:zip
+      - name: Upload Windows Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-builds
+          path: |
+            portable/**
+            dist/WhatsApp Chat Viewer TR Setup *.exe
+            dist/WhatsApp-Chat-Viewer-TR-portable-*.zip
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm ci
+      - name: Prepare & Build mac (x64 + arm64)
+        run: |
+          npm run package:mac:arm64
+          npm run package:mac:x64
+      - name: Upload macOS Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-builds
+          path: |
+            dist/*.dmg
+            dist/*.zip
+
+  draft-release:
+    needs: [build-windows, build-mac]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: windows-builds
+          path: windows
+      - uses: actions/download-artifact@v4
+        with:
+          name: mac-builds
+          path: mac
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            windows/**
+            mac/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

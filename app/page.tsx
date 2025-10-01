@@ -10,6 +10,8 @@ import { parseWhatsAppChat, parseWhatsAppChatAsync } from '@/lib/chat-parser';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Upload } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { formatDate, DATE_PATTERNS } from '@/lib/date-format';
 import JSZip from 'jszip';
 
 export default function Home() {
@@ -20,11 +22,13 @@ export default function Home() {
     mediaFiles: Map<string, string>; // fileName -> objectURL
     mediaUrls: string[]; // revoke için list
     addedAt: number;
+    originalZip?: File; // Yedekleme için orijinal ZIP referansı
   }
 
   const [chats, setChats] = useState<ChatSession[]>([]);
   const [selectedChatId, setSelectedChatId] = useState<string | null>(null);
   const activeChat = chats.find(c => c.id === selectedChatId) || null;
+  const { t, i18n } = useTranslation('common');
   const [searchQuery, setSearchQuery] = useState('');
   const [showSidebar, setShowSidebar] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -45,6 +49,9 @@ export default function Home() {
   const [lineProcessed, setLineProcessed] = useState<number>(0);
   const [lineTotal, setLineTotal] = useState<number>(0);
   const [progressMinimized, setProgressMinimized] = useState<boolean>(false);
+  // Scroll to bottom görünürlüğü
+  const messagesContainerRef = useRef<HTMLDivElement | null>(null);
+  const [showScrollBottom, setShowScrollBottom] = useState(false);
   
   // Cleanup blob URLs when component unmounts
   // Component unmount -> tüm chat object URL temizliği
@@ -78,7 +85,7 @@ export default function Home() {
       // Stage 1: Reading ZIP file
       setLoadingStage('reading');
       setLoadingProgress(10);
-      setCurrentStep('ZIP dosyası okunuyor...');
+  setCurrentStep(t('loading.reading'));
       
       const zip = new JSZip();
       const zipContent = await zip.loadAsync(file);
@@ -95,7 +102,7 @@ export default function Home() {
       // Stage 2: Extracting media files
       setLoadingStage('extracting');
       setLoadingProgress(30);
-      setCurrentStep('Medya dosyaları çıkarılıyor...');
+  setCurrentStep(t('loading.extracting'));
 
   const newMediaUrls: string[] = [];
 
@@ -112,7 +119,7 @@ export default function Home() {
       
       for (const [fileName, zipEntry] of mediaFileEntries) {
         try {
-          setCurrentStep(`Medya dosyası işleniyor: ${fileName}`);
+          setCurrentStep(t('loading.mediaFile', { file: fileName }));
           const blob = await zipEntry.async('blob');
           const url = URL.createObjectURL(blob);
           mediaFiles.set(fileName, url);
@@ -130,20 +137,20 @@ export default function Home() {
       // Stage 3: Parsing chat data
       setLoadingStage('parsing');
       setLoadingProgress(75);
-      setCurrentStep('Sohbet verileri ayrıştırılıyor...');
+  setCurrentStep(t('loading.parsing'));
 
       const text = await chatFile.async("string");
       setLoadingProgress(85);
       
       // Stage 4: Processing
       setLoadingStage('processing');
-      setCurrentStep('Mesajlar işleniyor...');
+  setCurrentStep(t('loading.processing'));
       
   const totalLines = text.split('\n').length;
   setLineTotal(totalLines);
       setLoadingStage('parsing');
       setLoadingProgress(75);
-      setCurrentStep('Sohbet verileri satır satır ayrıştırılıyor...');
+  setCurrentStep(t('loading.parsingLines'));
       const startParseTs = performance.now();
       const parsedChat = await parseWhatsAppChatAsync(text, mediaFiles, {
         chunkSize: 800,
@@ -158,7 +165,7 @@ export default function Home() {
               const remaining = total - processed;
               const etaSec = speed > 0 ? Math.ceil(remaining / speed) : 0;
               const etaTxt = etaSec > 0 ? ` ~${etaSec}s kaldı` : '';
-              setCurrentStep(`Ayrıştırma: ${processed}/${total} satır${etaTxt}`);
+              setCurrentStep(t('loading.parsingProgress', { processed, total, eta: etaTxt }));
             }
             setLineProcessed(processed);
         }
@@ -168,7 +175,7 @@ export default function Home() {
       // Complete
       setLoadingStage('complete');
       setLoadingProgress(100);
-      setCurrentStep('Tamamlandı!');
+  setCurrentStep(t('loading.completed'));
       
       // Yeni chat oturumu oluştur
       const newChat: ChatSession = {
@@ -177,7 +184,8 @@ export default function Home() {
         chatData: parsedChat,
         mediaFiles,
         mediaUrls: newMediaUrls,
-        addedAt: Date.now()
+        addedAt: Date.now(),
+        originalZip: file
       };
 
       setChats(prev => {
@@ -284,9 +292,29 @@ export default function Home() {
     });
   };
 
+  // Scroll izleme: belirli eşiği aşınca buton göster
+  useEffect(() => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    const handler = () => {
+      // Kullanıcı en alta yakınsa gizle, değilse göster
+      const distanceFromBottom = el.scrollHeight - (el.scrollTop + el.clientHeight);
+      setShowScrollBottom(distanceFromBottom > 600); // ~600px eşiği
+    };
+    el.addEventListener('scroll', handler, { passive: true });
+    handler();
+    return () => el.removeEventListener('scroll', handler);
+  }, [messagesContainerRef, activeChat]);
+
+  const scrollToBottom = () => {
+    const el = messagesContainerRef.current;
+    if (!el) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+  };
+
   return (
     <div 
-      className="min-h-screen bg-[#111B21] relative"
+      className="min-h-screen bg-[var(--wa-bg-secondary)] relative"
       onDragEnter={handleDrag}
       onDragLeave={handleDrag}
       onDragOver={handleDrag}
@@ -313,10 +341,10 @@ export default function Home() {
       {/* Drag & Drop Overlay */}
       {dragActive && (
         <div className="fixed inset-0 bg-black/50 z-40 flex items-center justify-center pointer-events-none select-none">
-          <div className="bg-[#00A884] rounded-xl p-8 text-white text-center shadow-2xl border-4 border-dashed border-white">
+          <div className="bg-[var(--wa-accent)] rounded-xl p-8 text-white text-center shadow-2xl border-4 border-dashed border-white">
             <Upload className="mx-auto h-16 w-16 mb-4" />
-            <h3 className="text-2xl font-bold mb-2">WhatsApp ZIP Dosyasını Bırakın</h3>
-            <p className="text-lg opacity-90">Sohbet verileri otomatik olarak yüklenecek</p>
+            <h3 className="text-2xl font-bold mb-2">{t('drop.title')}</h3>
+            <p className="text-lg opacity-90">{t('drop.subtitle')}</p>
           </div>
         </div>
       )}
@@ -335,29 +363,29 @@ export default function Home() {
               />
               <Button
                 onClick={() => fileInputRef.current?.click()}
-                className="bg-[#00A884] hover:bg-[#00806A] text-white"
+                className="bg-[var(--wa-accent)] hover:bg-[var(--wa-accent-strong)] text-white"
                 disabled={isLoading}
               >
                 <Upload className="mr-2 h-4 w-4" />
-                WhatsApp Sohbet(ler)i Yükle
+                {t('actions.loadChats')}
               </Button>
             </div>
           </div>
           <div className="text-center text-gray-400 text-sm pb-4">
-            Bu uygulama çevrimdışı çalışır ve verileriniz yerel olarak işlenir.
+            {t('empty.hint')}
             <br />
-            <span className="text-xs">Yaratıcı: Fatih Eke © 2025</span>
+            <span className="text-xs">{t('app.creator')}</span>
           </div>
         </div>
       ) : (
         <div className="flex h-screen relative">
           {/* Sidebar (toggleable) */}
           {showSidebar && (
-            <aside className="w-72 bg-[#202C33] border-r border-[#313D45] flex flex-col animate-in fade-in slide-in-from-left duration-200">
-              <div className="p-3 border-b border-[#313D45] flex items-center gap-2">
-                <span className="text-sm text-gray-300 font-semibold flex-1">Sohbetler ({chats.length})</span>
-                <Button size="sm" variant="outline" className="text-xs" onClick={() => fileInputRef.current?.click()} disabled={isLoading}>Ekle</Button>
-                <Button size="sm" variant="ghost" className="text-xs text-gray-400" title="Gizle" onClick={() => setShowSidebar(false)}>⟨</Button>
+            <aside className="w-72 bg-[var(--wa-panel)] border-r border-[var(--wa-panel-border)] flex flex-col animate-in fade-in slide-in-from-left duration-200">
+              <div className="p-3 border-b border-[var(--wa-panel-border)] flex items-center gap-2">
+                <span className="text-sm text-[var(--wa-bubble-meta)] font-semibold flex-1">{t('sidebar.chats')} ({chats.length})</span>
+                <Button size="sm" variant="outline" className="text-xs" onClick={() => fileInputRef.current?.click()} disabled={isLoading}>{t('actions.add')}</Button>
+                <Button size="sm" variant="ghost" className="text-xs text-[var(--wa-bubble-meta)] hover:text-[var(--wa-accent)]" title={t('actions.hide')} onClick={() => setShowSidebar(false)}>⟨</Button>
                 <Input
                   type="file"
                   accept=".zip"
@@ -376,21 +404,21 @@ export default function Home() {
                   const active = chat.id === selectedChatId;
                   const displayName = chat.chatData.participant || chat.fileName.replace(/^WhatsApp Chat -\s*/i, '').replace(/\.zip$/i, '');
                   return (
-                    <div key={chat.id} className={`px-3 py-2 text-xs border-b border-[#2C3940] cursor-pointer group ${active ? 'bg-[#2A3B43]' : 'hover:bg-[#25323A]'}`}
+                    <div key={chat.id} className={`px-3 py-2 text-xs border-b border-[var(--wa-panel-border)]/40 cursor-pointer group ${active ? 'bg-[var(--wa-hover-strong)]' : 'hover:bg-[var(--wa-hover)]'}`}
                       onClick={() => handleSelectChat(chat.id)}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="truncate max-w-[140px] text-gray-200" title={displayName}>{displayName}</span>
+                      <div className="flex items-center justify-between text-[var(--wa-bubble-meta)]">
+                        <span className="truncate max-w-[140px] text-[var(--wa-bubble-in-text)]" title={displayName}>{displayName}</span>
                         <button
                           onClick={(e) => { e.stopPropagation(); handleRemoveChat(chat.id); }}
-                          className="opacity-0 group-hover:opacity-100 transition text-gray-400 hover:text-red-400"
+                          className="opacity-0 group-hover:opacity-100 transition text-[var(--wa-bubble-meta)] hover:text-red-400"
                           title="Kaldır"
                         >✕</button>
                       </div>
-                      <div className="text-[10px] text-gray-500 mt-1 flex justify-between">
-                        <span>{msgCount} mesaj</span>
+                      <div className="text-[10px] text-[var(--wa-bubble-meta)] mt-1 flex justify-between">
+                        <span>{msgCount} {t('sidebar.messages')}</span>
                       </div>
-                      {dateRange && <div className="text-[10px] text-gray-500 mt-0.5">{dateRange}</div>}
+                      {dateRange && <div className="text-[10px] text-[var(--wa-bubble-meta)] mt-0.5">{dateRange}</div>}
                     </div>
                   );
                 })}
@@ -403,22 +431,22 @@ export default function Home() {
           {!showSidebar && (
             <button
               onClick={() => setShowSidebar(true)}
-              className="absolute top-3 left-3 z-20 bg-[#202C33] text-gray-300 hover:text-white border border-[#313D45] rounded px-2 py-1 text-xs shadow"
-              title="Sohbet listesini göster"
-            >Sohbetler ⟩</button>
+              className="absolute top-3 left-3 z-20 bg-[var(--wa-panel)] text-[var(--wa-bubble-meta)] hover:text-[var(--wa-accent)] border border-[var(--wa-panel-border)] rounded px-2 py-1 text-xs shadow"
+              title={t('actions.showChats')}
+            >{t('actions.showChats')} ⟩</button>
           )}
           {/* Main panel */}
           <div className="flex-1 flex flex-col overflow-hidden">
             {activeChat && (
               <>
-                <ChatHeader onSearch={handleSearch} onDateSelect={handleDateSelect} />
-                <div className="px-4 pt-2 border-b border-[#313D45] bg-[#202C33]">
+                <ChatHeader onSearch={handleSearch} onDateSelect={handleDateSelect} chats={chats.map(c => ({ id: c.id, fileName: c.fileName, originalZip: c.originalZip }))} />
+                <div className="px-4 pt-2 border-b border-[var(--wa-panel-border)] bg-[var(--wa-panel)] transition-colors">
                   <ChatStatistics chatData={activeChat.chatData} />
                 </div>
-                <div className="bg-[#202C33] border-b border-[#313D45] px-4 py-2 text-center text-xs text-gray-400">
-                  💡 Toplu: Birden fazla ZIP dosyasını aynı anda sürükleyebilirsiniz
+                <div className="bg-[var(--wa-panel)] border-b border-[var(--wa-panel-border)] px-4 py-2 text-center text-xs text-[var(--wa-bubble-meta)]">
+                  {t('hint.bulk')}
                 </div>
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar relative">
                   {filteredMessages?.map((message, index) => {
                     let messageDate;
                     try { messageDate = message.timestamp.toISOString().split('T')[0]; } catch { messageDate = 'Invalid Date'; }
@@ -428,8 +456,10 @@ export default function Home() {
                     return (
                       <div key={index}>
                         {(!prevMessage || messageDate !== prevMessageDate) && (
-                          <div data-date={messageDate} className="text-center text-sm text-gray-400 my-4">
-                            {messageDate !== 'Invalid Date' ? new Date(messageDate).toLocaleDateString() : 'Unknown Date'}
+                          <div data-date={messageDate} className="flex justify-center my-6">
+                            <span className="wa-date-pill px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                              {messageDate !== 'Invalid Date' ? formatDate(message.timestamp, DATE_PATTERNS.pill, i18n.language) : t('date.unknown')}
+                            </span>
                           </div>
                         )}
                         <ChatMessage
@@ -440,6 +470,17 @@ export default function Home() {
                     );
                   })}
                 </div>
+                {/* Scroll to bottom button */}
+                {showScrollBottom && (
+                  <button
+                    onClick={scrollToBottom}
+                    className="absolute bottom-5 right-5 z-30 p-3 rounded-full shadow-lg transition-colors bg-[var(--wa-accent)] hover:bg-[var(--wa-accent-strong)] text-white focus:outline-none focus:ring-2 focus:ring-[var(--wa-focus-ring)] focus:ring-offset-2"
+                    aria-label={t('actions.scrollToBottom')}
+                    title={t('actions.scrollToBottom')}
+                  >
+                    ↓
+                  </button>
+                )}
               </>
             )}
           </div>

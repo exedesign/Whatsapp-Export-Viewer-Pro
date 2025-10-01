@@ -1,32 +1,46 @@
-appId: com.exedesign.whatsappchatviewertr
+appId: com.whatsappviewer.tr
 productName: "WhatsApp Chat Viewer TR"
 directories:
-  app: .electron-app
-  output: dist
+	output: dist
+	buildResources: build
+
 files:
-  - "**/*"
-extraResources:
-  - from: build/icon.ico
-    to: icon.ico
+	- "!.git"
+	- "!.github"
+	- "!.vscode"
+	- "!node_modules/@types"
+	- "!**/*.map"
+	- "!scripts"
+	- "!.electron-app" # electron-packager staging kullanılmıyor; prep-electron scripti zaten staging üretir
+
+asar: true
+
 win:
-  target:
-    - target: nsis
-      arch: x64
-    - target: portable
-      arch: x64
-  icon: build/icon.ico
-  signAndEditExecutable: false
+	target:
+		- nsis
+	icon: icon.ico
+	artifactName: "${productName} Setup ${version}.${ext}"
 nsis:
-  oneClick: false
-  allowElevation: true
-  allowToChangeInstallationDirectory: true
-  perMachine: false
-  createDesktopShortcut: true
-  createStartMenuShortcut: true
-  shortcutName: "WhatsApp Chat Viewer TR"
-  uninstallDisplayName: "WhatsApp Chat Viewer TR"
-  deleteAppDataOnUninstall: false
-portable:
-  artifactName: "${productName}-Portable-${version}.${ext}"
+	oneClick: false
+	perMachine: false
+	allowElevation: true
+	allowToChangeInstallationDirectory: true
+	artifactName: "${productName} Setup ${version}.${ext}"
+
+mac:
+	category: public.app-category.productivity
+	target:
+		- dmg
+		- zip
+	artifactName: "${productName}-${version}-mac-${arch}.${ext}"
+	# icon.icns dosyasını build/ içine koymanız gerekir (henüz yoksa dönüştürüp ekleyin)
+	icon: build/icon.icns
+
+dmg:
+	artifactName: "${productName}-${version}.dmg"
+	backgroundColor: "#0b141a"
+
+publish: null
+
 extraMetadata:
-  main: main.js
+	main: main.js

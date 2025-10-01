@@ -1,21 +1,67 @@
-# WhatsApp Chat Viewer TR 🇹🇷
+<div align="center">
 
-> **Modern, offline WhatsApp chat viewer with Turkish localization and advanced features**
+# WhatsApp Chat Viewer
 
-![WhatsApp Chat Viewer TR](https://img.shields.io/badge/WhatsApp-Chat%20Viewer%20TR-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
+**Hızlı, güvenli, tamamen çevrimdışı WhatsApp sohbet analiz aracı**  
+**Fast, secure and 100% offline WhatsApp chat insight tool**
+
+![WhatsApp Chat Viewer](https://img.shields.io/badge/WhatsApp-Chat%20Viewer-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-13.5.1-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Electron](https://img.shields.io/badge/Electron-28-blue?style=for-the-badge&logo=electron&logoColor=white)
 
-WhatsApp sohbet yedeklerinizi görüntülemenizi ve analiz etmenizi sağlayan modern, çevrimdışı web uygulaması. Next.js ve TypeScript ile geliştirilmiştir ve tüm verileriniz tarayıcınızda yerel olarak işlenir. Tamamen Türkçe arayüz ve ileri düzey özelliklerle donatılmıştır.
+**Yeni Nesil Deneyim / Next‑Gen UX**  
+Light & Deep temalar, canlı medya önizleme, detaylı istatistikler ve çok hızlı arama.
+
+**Çoklu Dil Desteği / Multi-Language Support**  
+Arayüz ve temel metinler; Türkçe (TR) + İngilizce (EN) çekirdek olmak üzere ilerleyen sürümlerde ek dil paketleriyle genişleyebilir yapıdadır. i18n altyapısı yeni JSON ekleyerek kolay çeviri imkânı sunar.
+
+</div>
 
 ---
 
-**🙏 Teşekkürler | Special Thanks:** Bu proje [abishekvenkat/whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader) temel alınarak geliştirilmiştir. Orijinal projeyi oluşturan **@abishekvenkat**'a katkıları için teşekkür ederiz!
+## 🚀 Neden Bu Uygulama? | Why This App?
+Türkçe odaklı, gizlilik öncelikli ve kurulum gerektirmeden (web) ya da tek tıkla (desktop) çalışan bir WhatsApp sohbet görüntüleyiciye ihtiyaç vardı. Bu proje:  
+- Hiçbir veriyi uzak sunucuya göndermez (tamamen offline)  
+- Büyük ZIP arşivlerinde akıcı performans  
+- Medya (görsel / video / ses) inline inceleme  
+- İstatistik & katılımcı bazlı dağılım  
+- Çoklu tema + erişilebilirlik odaklı renk sistemi  
+
+---
+
+## 💡 Öne Çıkanlar | Highlights
+
+| Kategori | Özellikler | Açıklama |
+|----------|------------|----------|
+| Performans | Akışkan parsing | Büyük export dosyalarında bloklu işleme |
+| Gizlilik | %100 Lokal | Hiçbir sunucuya upload yok |
+| Analiz | Mesaj / medya sayımları | Katılımcı, tarih aralığı, tür bazlı |
+| Medya | Görsel / Video / Ses oynatma | Tarayıcı API + blob URL yönetimi |
+| Arama | Anında metin arama | Vaka duyarlı olmayan temel filtre |
+| Arayüz | Light & Deep tema | Inline başlangıç scripti ile “flash” yok |
+| UX | Drag & Drop ZIP | Otomatik aşamalı ilerleme göstergesi |
+| Lokalizasyon | TR + EN (fallback) | JSON tabanlı i18n, kolay genişletilebilir |
+
+### 🌍 Desteklenen Diller / Supported Languages
+- Türkçe (tr) – Birincil
+- English (en) – Fallback
+- (Hazır Altyapı) Yeni dil eklemek için `locales/<lang>/translation.json` ekleyin ve gerekli anahtarları çevirin.
+
+---
+
+## 🔐 Gizlilik & Güven | Privacy & Trust
+Tüm ayrıştırma (parsing), indeksleme, medya URL oluşturma ve istatistik hesaplama işlemleri tarayıcınızın belleğinde gerçekleşir. Sayfayı kapattığınızda oluşturulan blob URL’leri temizlenir. Application hiç ağ isteği atmadan çalışabilir.
+
+---
+
+**🙏 Teşekkür (Upstream Credit)**  
+Bu çalışma; temel alınan açık kaynak proje [abishekvenkat/whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader) üzerine modern Türkçe deneyimi, tematik tasarım, masaüstü paketleme ve gelişmiş analiz özellikleri ekleyerek genişletilmiştir. Orijinal emek için @abishekvenkat’e teşekkürler.
 
 **👨‍💻 Geliştirici | Developer:** Fatih Eke  
-**📅 Geliştirme Tarihi | Development Date:** 2025  
-**🏷️ Versiyon | Version:** 3.0.0  
+**📅 Yıl | Year:** 2025  
+**🔖 Sürüm | Version:** 3.2.x (bkz. Release & tag)  
 
 ---
 
@@ -277,7 +323,7 @@ npm install --save-dev electron electron-packager electron-winstaller concurrent
 ```bash
 npm run pack-win-portable
 ```
-Çıktı klasörü: `portable/WhatsApp Chat Viewer TR-win32-x64/`
+Çıktı klasörü: `portable/WhatsApp Chat Viewer-win32-x64/`
 
 ### 🧙 Installer (Setup.exe) Oluşturma
 ```bash
@@ -324,6 +370,106 @@ npm run installer
 ---
 
 </div>
+
+## 🍎 macOS Paketleme | macOS Packaging
+
+macOS için DMG ve ZIP (isteğe bağlı Universal bina) artefaktları üretmek üzere `electron-builder` yapılandırması eklendi.
+
+### 🔧 Gereksinimler | Requirements
+- macOS 12+ (Monterey veya üstü tavsiye)
+- Xcode Command Line Tools (`xcode-select --install`)
+- (Opsiyonel) Apple Geliştirici Hesabı (kod imzalama & notarization için)
+
+### 📂 İkon (icon.icns) Oluşturma
+Kaynak olarak en az 1024x1024 şeffaf PNG (ör: `icon.png`) hazırlayın.
+
+Terminalde (kaynak PNG aynı dizinde):
+```bash
+mkdir -p icon.iconset
+sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png
+sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png
+sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png
+sips -z 64 64     icon.png --out icon.iconset/icon_32x32@2x.png
+sips -z 128 128   icon.png --out icon.iconset/icon_128x128.png
+sips -z 256 256   icon.png --out icon.iconset/icon_128x128@2x.png
+sips -z 256 256   icon.png --out icon.iconset/icon_256x256.png
+sips -z 512 512   icon.png --out icon.iconset/icon_256x256@2x.png
+sips -z 512 512   icon.png --out icon.iconset/icon_512x512.png
+cp icon.png icon.iconset/icon_512x512@2x.png  # 1024x1024 (retina)
+iconutil -c icns icon.iconset -o build/icon.icns
+rm -rf icon.iconset
+```
+`build/icon.icns` dosyası oluşturulduktan sonra mac paket komutlarını tekrar çalıştırın.
+
+### 🏗️ Derleme Komutları | Build Scripts
+`package.json` içinde hazır scriptler:
+```bash
+npm run package:mac:arm64   # Apple Silicon (M1/M2...)
+npm run package:mac:x64     # Intel
+npm run package:mac         # Sırasıyla arm64 ve x64 (iki ayrı artefakt)
+npm run package:mac:universal  # Tek universal binary (dmg varsayılan)
+```
+Çıktılar `dist/` altında `WhatsApp Chat Viewer-<version>-mac-<arch>.{dmg,zip}` formatında oluşur.
+
+### ✅ Doğrulama | Verification
+```bash
+hdiutil attach dist/WhatsApp\ Chat\ Viewer\ TR-<version>-mac-arm64.dmg
+spctl -a -vv -t execute "WhatsApp Chat Viewer.app"  # İmza / gatekeeper bilgisi
+hdiutil detach /Volumes/WhatsApp*Chat*Viewer*
+```
+
+### 🔐 Kod İmzalama & Notarization (Opsiyonel)
+1. Apple Developer hesabı ile bir Developer ID Application sertifikası oluşturun.
+2. Sertifikayı anahtarlığa ekleyin veya environment üzerinden `CSC_LINK` & `CSC_KEY_PASSWORD` ayarlayın.
+3. App Specific Password oluşturup aşağıdaki değişkenleri CI veya local ortamda tanımlayın:
+    - `APPLE_ID` (Apple ID e-posta)
+    - `APPLE_APP_SPECIFIC_PASSWORD`
+    - `APPLE_TEAM_ID`
+4. `electron-builder.yml` içine (örnek):
+```yaml
+afterSign: scripts/notarize.js
+mac:
+   hardenedRuntime: true
+   entitlements: build/entitlements.mac.plist
+   entitlementsInherit: build/entitlements.mac.plist
+```
+5. `scripts/notarize.js` (örnek minimal):
+```js
+// scripts/notarize.js
+const { notarize } = require('@electron/notarize');
+exports.default = async context => {
+   if (process.platform !== 'darwin') return;
+   const { appOutDir, packager } = context;
+   const appName = packager.appInfo.productFilename;
+   await notarize({
+      appBundleId: 'com.whatsappviewer.tr',
+      appPath: `${appOutDir}/${appName}.app`,
+      appleId: process.env.APPLE_ID,
+      appleIdPassword: process.env.APPLE_APP_SPECIFIC_PASSWORD,
+      teamId: process.env.APPLE_TEAM_ID
+   });
+};
+```
+
+### 🧪 Test Kontrol Listesi (macOS)
+- [ ] DMG açılıyor ve uygulama Applications sürükle kopyalanabiliyor mu?
+- [ ] İlk açılışta Gatekeeper engeli yok (imzasızsa sağ tıklayıp Aç → Onay)
+- [ ] Çevrimdışı çalışma, ZIP sürükle-bırak sorunsuz mu?
+- [ ] Medya önizlemeleri (jpg/mp4/opus) çalışıyor mu?
+- [ ] Tema geçişleri (Light / Deep) beklendiği gibi mi?
+
+### 🐞 Sorun Giderme | Troubleshooting
+| Belirti | Olası Sebep | Çözüm |
+|---------|------------|-------|
+| `icon.icns not found` | İkon dosyası eklenmemiş | Yukarıdaki adımlarla `build/icon.icns` oluşturun |
+| `codesign failed` | Sertifika ya da yetki yok | Sertifikanın Keychain’de olduğundan veya env değişkenlerinin doğru olduğundan emin olun |
+| `notarization failed (invalid credentials)` | Yanlış APPLE_APP_SPECIFIC_PASSWORD | Yeni bir app-specific password üretin |
+| Uygulama açılışta kapanıyor | Universal build sorunlu | Ayrı arch (arm64/x64) buildlerini deneyin |
+
+### 📦 Release Önerisi (macOS)
+GitHub Release’e hem `dmg` hem `zip` yükleyin. Universal tek dosya istiyorsanız `package:mac:universal` çıktısını ekleyin; aksi halde arm64 + x64 ayrı dağıtımları performans/indirme boyutu açısından daha esnektir.
+
+---
 
 ## 🔄 Otomatik Güncelleme | Auto Update (Basit Kontrol)
 

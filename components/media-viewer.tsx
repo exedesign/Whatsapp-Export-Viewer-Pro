@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { X, Download, ZoomIn, ZoomOut } from 'lucide-react';
 
 interface MediaViewerProps {
@@ -13,6 +14,7 @@ interface MediaViewerProps {
 
 export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: MediaViewerProps) {
   const [zoom, setZoom] = useState(1);
+  const { t } = useTranslation('common');
 
   // ESC ile kapatma
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -66,15 +68,15 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
             <>
               <button
                 onClick={handleZoomOut}
-                className="bg-white bg-opacity-80 hover:bg-opacity-100 text-black p-2 rounded-lg transition-colors"
+                className="backdrop-blur-sm bg-[var(--wa-panel)]/80 hover:bg-[var(--wa-panel)] text-[var(--wa-bubble-in-text)] border border-[var(--wa-panel-border)] p-2 rounded-lg transition-colors shadow-sm"
                 title="Uzaklaştır"
               >
                 <ZoomOut className="h-4 w-4" />
               </button>
               <button
                 onClick={handleZoomIn}
-                className="bg-white bg-opacity-80 hover:bg-opacity-100 text-black p-2 rounded-lg transition-colors"
-                title="Yakınlaştır"
+                className="backdrop-blur-sm bg-[var(--wa-panel)]/80 hover:bg-[var(--wa-panel)] text-[var(--wa-bubble-in-text)] border border-[var(--wa-panel-border)] p-2 rounded-lg transition-colors shadow-sm"
+                title={t('media.zoomIn')}
               >
                 <ZoomIn className="h-4 w-4" />
               </button>
@@ -82,15 +84,15 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
           )}
           <button
             onClick={handleDownload}
-            className="bg-white bg-opacity-80 hover:bg-opacity-100 text-black p-2 rounded-lg transition-colors"
-            title="İndir"
+            className="backdrop-blur-sm bg-[var(--wa-panel)]/80 hover:bg-[var(--wa-panel)] text-[var(--wa-bubble-in-text)] border border-[var(--wa-panel-border)] p-2 rounded-lg transition-colors shadow-sm"
+            title={t('media.download')}
           >
             <Download className="h-4 w-4" />
           </button>
           <button
             onClick={onClose}
-            className="bg-white bg-opacity-80 hover:bg-opacity-100 text-black p-2 rounded-lg transition-colors"
-            title="Kapat"
+            className="backdrop-blur-sm bg-[var(--wa-panel)]/80 hover:bg-[var(--wa-panel)] text-[var(--wa-bubble-in-text)] border border-[var(--wa-panel-border)] p-2 rounded-lg transition-colors shadow-sm"
+            title={t('media.close')}
           >
             <X className="h-4 w-4" />
           </button>
@@ -98,7 +100,7 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
 
         {/* Dosya Adı */}
         {fileName && (
-          <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-2 rounded-lg text-sm">
+          <div className="absolute bottom-4 left-4 bg-[var(--wa-panel)]/70 backdrop-blur-sm text-[var(--wa-bubble-in-text)] px-3 py-2 rounded-lg text-sm border border-[var(--wa-panel-border)] shadow-sm">
             {fileName}
           </div>
         )}
@@ -108,7 +110,7 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
           {mediaType === 'image' && (
             <img
               src={mediaUrl}
-              alt={fileName || 'Resim'}
+              alt={fileName || t('media.unknown')}
               className="max-w-full max-h-full object-contain cursor-zoom-in"
               style={{ transform: `scale(${zoom})` }}
               onClick={() => setZoom(prev => prev === 1 ? 1.5 : 1)}
@@ -129,8 +131,8 @@ export function MediaViewer({ isOpen, onClose, mediaUrl, mediaType, fileName }: 
           {mediaType === 'audio' && (
             <div className="bg-gray-800 p-8 rounded-lg">
               <div className="text-white text-center mb-4">
-                <div className="text-lg font-semibold mb-2">Ses Dosyası</div>
-                <div className="text-sm text-gray-300">{fileName || 'Bilinmeyen'}</div>
+                <div className="text-lg font-semibold mb-2">{t('media.audioFile')}</div>
+                <div className="text-sm text-gray-300">{fileName || t('media.unknown')}</div>
               </div>
               <audio
                 src={mediaUrl}

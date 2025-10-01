@@ -3,9 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Light tema (parlaklığı azaltılmış, kontrast optimize) */
+  --foreground-rgb: 17, 27, 33;
+  --background-start-rgb: 233, 228, 221;
+  --background-end-rgb: 235, 238, 241;
+
+  --wa-bg: #e9e4dd; /* ana zemin */
+  --wa-bg-secondary: #eef1f3; /* sohbet yüzeyi */
+  --wa-panel: #fbfbfa; /* panel / kart */
+  --wa-panel-border: #c9d0d4;
+  --wa-bubble-out: #d3f8cb; /* biraz daha yumuşak yeşil */
+  --wa-bubble-in: #ffffff;
+  --wa-bubble-out-text: #102027;
+  --wa-bubble-in-text: #111b21;
+  --wa-bubble-meta: #5b6b74; /* okunabilirlik için az koyulaştı */
+  --wa-accent: #008069;
+  --wa-accent-strong: #029a7a;
+  --wa-link: #3faedb;
+  --wa-scroll: #c3c7c9;
+  --wa-selection: #b5ebd0;
+  --wa-header: #eef1f3;
+  --wa-search-bg: #eef1f3;
+  --wa-search-border: #d0d5d8;
+  --wa-search-text: #4d5d65;
+  --wa-icon-muted: #60727b;
+  --wa-icon-accent: #008069;
+  --wa-stat-card-bg: #fbfbfa;
+  --wa-stat-card-border: #d0d5d8;
+  --wa-date-pill-bg: #e3e7ea;
+  --wa-hover: #dfe3e6;
+  --wa-hover-strong: #d4d9dc;
+  --wa-bubble-in-hover: #f2f4f5;
+  --wa-bubble-out-hover: #c7f2bf;
+  --wa-focus-ring: #00a884;
+  --wa-message-selected: #c9efd1;
+  --wa-message-selected-border: #9fd3a5;
+  --wa-reply-bg: #eef1f3;
+  --wa-reply-border: #d0d5d8;
+  --wa-menu-bg: #ffffff;
+  --wa-menu-border: #d0d5d8;
+  --wa-menu-hover: #f2f4f5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,57 +55,94 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Shadcn base tokenlerini WA paletine yönlendiriyoruz */
+    --background: 40 33% 92%; /* wa-bg yaklaşık */
+    --foreground: 200 30% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 200 30% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --popover-foreground: 200 30% 10%;
+    --primary: 167 100% 26%; /* accent strong */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 12% 92%;
+    --secondary-foreground: 200 30% 15%;
+    --muted: 210 12% 92%;
+    --muted-foreground: 200 12% 40%;
+    --accent: 167 100% 32%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 80%;
+    --input: 210 15% 80%;
+    --ring: 167 100% 26%;
+    --chart-1: 167 100% 26%;
+    --chart-2: 142 45% 36%;
+    --chart-3: 32 95% 44%;
+    --chart-4: 43 74% 55%;
+    --chart-5: 27 87% 52%;
     --radius: 0.5rem;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* Koyu tema - kontrast/katman ayrımı güçlendirildi */
+    --wa-bg: #0a1014;
+    --wa-bg-secondary: #10181d;
+    --wa-panel: #111b21;
+    --wa-panel-border: #1f2b33;
+    --wa-bubble-out: #05614f;
+    --wa-bubble-in: #1b2730;
+    --wa-bubble-out-text: #e6edef;
+    --wa-bubble-in-text: #e6edef;
+    --wa-bubble-meta: #90a1ab;
+    --wa-accent: #00a884;
+    --wa-accent-strong: #06c49a;
+    --wa-scroll: #233037;
+    --wa-selection: #044035;
+    --wa-header: #0d191f;
+    --wa-search-bg: #1f2c33;
+    --wa-search-border: #1f2c33;
+    --wa-search-text: #d4d9dc;
+    --wa-icon-muted: #90a1ab;
+    --wa-icon-accent: #06c49a;
+    --wa-stat-card-bg: #1b2730;
+    --wa-stat-card-border: #2d3c45;
+    --wa-date-pill-bg: #182229;
+    --wa-hover: #1f2c33;
+    --wa-hover-strong: #1a262d;
+    --wa-bubble-in-hover: #24323c;
+    --wa-bubble-out-hover: #077761;
+    --wa-focus-ring: #00a884;
+    --wa-message-selected: #1b3d34;
+    --wa-message-selected-border: #12604e;
+    --wa-reply-bg: #162229;
+    --wa-reply-border: #223038;
+    --wa-menu-bg: #18252c;
+    --wa-menu-border: #25343c;
+    --wa-menu-hover: #203038;
+
+    --background: 210 32% 7%;
+    --foreground: 210 18% 95%;
+    --card: 210 30% 11%;
+    --card-foreground: 210 18% 95%;
+    --popover: 210 30% 11%;
+    --popover-foreground: 210 18% 95%;
+    --primary: 167 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 205 24% 19%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 205 24% 19%;
+    --muted-foreground: 210 10% 66%;
+    --accent: 167 100% 33%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 26% 23%;
+    --input: 205 26% 23%;
+    --ring: 167 100% 30%;
+    --chart-1: 167 100% 33%;
+    --chart-2: 142 45% 40%;
+    --chart-3: 32 90% 55%;
+    --chart-4: 43 74% 55%;
+    --chart-5: 27 87% 52%;
   }
 }
 
@@ -77,6 +151,124 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+      background: var(--wa-bg);
+      position: relative;
   }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='144' height='144' viewBox='0 0 144 144' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='g' cx='0' cy='0' r='1'%3E%3Cstop stop-color='%23000000' stop-opacity='0.08'/%3E%3Cstop offset='1' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg fill='url(%23g)'%3E%3Ccircle cx='16' cy='24' r='2'/%3E%3Ccircle cx='72' cy='8' r='2'/%3E%3Ccircle cx='128' cy='40' r='2'/%3E%3Ccircle cx='40' cy='80' r='2'/%3E%3Ccircle cx='96' cy='64' r='2'/%3E%3Ccircle cx='24' cy='128' r='2'/%3E%3Ccircle cx='120' cy='112' r='2'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 144px 144px;
+  opacity: .22; /* light pattern daha yumuşak */
+    mix-blend-mode: normal;
+  }
+  .dark body::before { opacity: .10; }
 }
+
+/* Sohbet ana paneli için (örn container'ına ekleyebilirsin) */
+.wa-chat-surface {
+  background: var(--wa-bg-secondary);
+  position: relative;
+}
+
+/* Bubble stilleri */
+.bubble-out {
+  background: var(--wa-bubble-out);
+  color: var(--wa-bubble-out-text);
+  border-radius: 8px 0 8px 8px;
+}
+.bubble-in {
+  background: var(--wa-bubble-in);
+  color: var(--wa-bubble-in-text);
+  border-radius: 0 8px 8px 8px;
+}
+.bubble-meta { color: var(--wa-bubble-meta); }
+
+/* Linkler */
+a { color: var(--wa-link); }
+a:hover { color: var(--wa-accent-strong); }
+
+/* Panel yardımcı sınıflar (gerektiğinde) */
+.wa-panel { background: var(--wa-panel); }
+.wa-panel-border { border-color: var(--wa-panel-border); }
+
+/* Date pill (WA tarzı) */
+.wa-date-pill { background: var(--wa-date-pill-bg); color: var(--wa-bubble-meta); }
+.dark .wa-date-pill { background: var(--wa-date-pill-bg); }
+
+/* Tema modları (class tabanlı) */
+/* .theme-whatsapp (varsayılan WhatsApp paleti) özel override gerektikçe eklenebilir */
+
+.theme-deep:root {
+  --wa-bg: #050b0f;
+  --wa-bg-secondary: #0a1116;
+  --wa-panel: #0e171d;
+  --wa-panel-border: #1c272d;
+  --wa-bubble-out: #053c31;
+  --wa-bubble-in: #182429;
+  --wa-bubble-out-text: #d6ece6;
+  --wa-bubble-in-text: #e2e8ea;
+  --wa-bubble-meta: #6b7b82; /* biraz daha okunur */
+  --wa-accent: #00a884;
+  --wa-accent-strong: #06cf9c;
+  --wa-scroll: #1f2c33;
+  --wa-selection: #074e41;
+  --wa-hover: #122027;
+  --wa-hover-strong: #0f1b21;
+  --wa-bubble-in-hover: #1f2f36;
+  --wa-bubble-out-hover: #074d3f;
+  --wa-focus-ring: #00a884;
+  --wa-message-selected: #103a33;
+  --wa-message-selected-border: #0c5a48;
+  --wa-reply-bg: #122027;
+  --wa-reply-border: #1c2d33;
+  --wa-menu-bg: #101c22;
+  --wa-menu-border: #1c2d33;
+  --wa-menu-hover: #18262d;
+  /* Ek: arama, header, istatistik kartı, date pill */
+  --wa-search-bg: #132229;
+  --wa-search-border: #1f2d33;
+  --wa-header: #0c1419;
+  --wa-stat-card-bg: #101c22;
+  --wa-stat-card-border: #1c2d33;
+  --wa-date-pill-bg: #122027;
+
+  /* Shadcn sistem HSL token override (popover, card, background vs) */
+  --background: 205 50% 4.5%;
+  --foreground: 205 15% 94%;
+  --card: 205 45% 6.5%;
+  --card-foreground: 205 15% 94%;
+  --popover: 205 45% 7.5%;
+  --popover-foreground: 205 15% 94%;
+  --primary: 167 100% 33%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 205 32% 14%;
+  --secondary-foreground: 205 18% 88%;
+  --muted: 205 32% 14%;
+  --muted-foreground: 205 12% 62%;
+  --accent: 167 100% 33%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 40%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 205 28% 18%;
+  --input: 205 28% 18%;
+  --ring: 167 100% 30%;
+  --chart-1: 167 100% 33%;
+  --chart-2: 142 45% 40%;
+  --chart-3: 32 90% 55%;
+  --chart-4: 43 74% 55%;
+  --chart-5: 27 87% 52%;
+}
+.theme-deep body { background: var(--wa-bg); }
+
+/* Scrollbar uyumu (webkit) */
+*::-webkit-scrollbar { width: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--wa-scroll); border-radius: 8px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--wa-accent); }
+
+::selection { background: var(--wa-selection); }

@@ -7,6 +7,7 @@ import { Download, FileText, Image, Music, Video, ExternalLink } from 'lucide-re
 import { Button } from '@/components/ui/button';
 import { MediaViewer } from '@/components/media-viewer';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Utility function to make links and emails clickable
 const renderContentWithLinks = (content: string) => {
@@ -60,6 +61,7 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
     type: 'image' | 'video' | 'audio';
     fileName?: string;
   }>({ isOpen: false, url: '', type: 'image' });
+  const { t } = useTranslation('common');
 
   const formattedTime = (() => {
     try {
@@ -129,24 +131,30 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
 
   return (
     <>
-      <div className={`flex ${isCurrentUser ? 'justify-end' : 'justify-start'} mb-4`}>
-        <Card className={`max-w-[70%] p-3 ${
-          isCurrentUser 
-            ? 'bg-blue-500 text-white ml-auto' 
-            : 'bg-gray-100 text-gray-900'
-        }`}>
+      <div className={`flex ${isCurrentUser ? 'justify-end' : 'justify-start'} mb-2`}>
+        <Card
+          className={`max-w-[70%] p-3 shadow-sm transition-colors ${
+            isCurrentUser
+              ? 'bubble-out ml-auto'
+              : 'bubble-in'
+          }`}
+          style={{
+            background: isCurrentUser ? 'var(--wa-bubble-out)' : 'var(--wa-bubble-in)',
+            color: isCurrentUser ? 'var(--wa-bubble-out-text)' : 'var(--wa-bubble-in-text)'
+          }}
+        >
           <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className={`font-medium ${isCurrentUser ? 'text-blue-100' : 'text-gray-600'}`}>
+            <div className="flex items-center justify-between text-[11px] tracking-wide">
+              <span className={`font-medium ${isCurrentUser ? 'opacity-80 text-[var(--wa-bubble-out-text)]' : 'bubble-meta'}`}>
                 {message.sender}
               </span>
-              <span className={`${isCurrentUser ? 'text-blue-200' : 'text-gray-500'}`}>
+              <span className={`bubble-meta ml-3 ${isCurrentUser ? 'opacity-80 text-[var(--wa-bubble-out-text)]' : ''}`}>
                 {formattedTime}
               </span>
             </div>
 
             {message.content && (
-              <p className="text-sm whitespace-pre-wrap break-words">
+              <p className="text-sm whitespace-pre-wrap break-words leading-relaxed [&_a]:text-[var(--wa-link)] [&_a]:hover:text-[var(--wa-accent-strong)]">
                 {renderContentWithLinks(message.content)}
               </p>
             )}
@@ -188,10 +196,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleMediaClick(message.mediaUrl!, message.mediaType!, message.fileName);
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
-                        Göster
+                        {t('media.show')}
                       </Button>
                       <Button
                         variant="ghost"
@@ -200,10 +208,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleDownload(message.mediaUrl!, message.fileName || 'resim.jpg');
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <Download className="h-3 w-3 mr-1" />
-                        İndir
+                        {t('media.download')}
                       </Button>
                     </div>
                   </div>
@@ -248,10 +256,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleMediaClick(message.mediaUrl!, message.mediaType!, message.fileName);
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
-                        Tam Ekran
+                        {t('media.fullscreen')}
                       </Button>
                       <Button
                         variant="ghost"
@@ -260,10 +268,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleDownload(message.mediaUrl!, message.fileName || 'video.mp4');
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <Download className="h-3 w-3 mr-1" />
-                        İndir
+                        {t('media.download')}
                       </Button>
                     </div>
                   </div>
@@ -276,7 +284,7 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                         <Music className="h-6 w-6 text-white flex-shrink-0" />
                         <div className="flex-1 min-w-0">
                           <p className="text-white text-sm font-medium truncate">
-                            {message.fileName || 'Ses Dosyası'}
+                            {message.fileName || t('media.audioFile')}
                           </p>
                         </div>
                       </div>
@@ -315,10 +323,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleMediaClick(message.mediaUrl!, message.mediaType!, message.fileName);
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
-                        Tam Ekran
+                        {t('media.fullscreen')}
                       </Button>
                       <Button
                         variant="ghost"
@@ -327,10 +335,10 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                           e.stopPropagation();
                           handleDownload(message.mediaUrl!, message.fileName || 'ses.mp3');
                         }}
-                        className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                        className={`h-6 text-xs ${isCurrentUser ? 'hover:opacity-100 opacity-80 text-[var(--wa-bubble-out-text)] hover:bg-[var(--wa-accent)]/20' : 'text-[var(--wa-bubble-in-text)] hover:bg-[var(--wa-accent)]/10'}`}
                       >
                         <Download className="h-3 w-3 mr-1" />
-                        İndir
+                        {t('media.download')}
                       </Button>
                     </div>
                   </div>
@@ -341,9 +349,9 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                     <FileText className="h-8 w-8 text-gray-400" />
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900 truncate">
-                        {message.fileName || 'Belge'}
+                        {message.fileName || t('media.file')}
                       </p>
-                      <p className="text-xs text-gray-500">Belge</p>
+                      <p className="text-xs text-gray-500">{t('media.file')}</p>
                     </div>
                     <Button
                       variant="ghost"
@@ -396,7 +404,7 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                         className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
-                        Göster
+                        {t('media.show')}
                       </Button>
                       <Button
                         variant="ghost"
@@ -408,7 +416,7 @@ export function ChatMessage({ message, isCurrentUser }: ChatMessageProps) {
                         className={`h-6 text-xs ${isCurrentUser ? 'text-blue-100 hover:text-white hover:bg-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
                       >
                         <Download className="h-3 w-3 mr-1" />
-                        İndir
+                        {t('media.download')}
                       </Button>
                     </div>
                   </div>

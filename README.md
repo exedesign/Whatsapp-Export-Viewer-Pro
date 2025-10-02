@@ -2,26 +2,15 @@
 
 # 🌍 WhatsApp Export Viewer Pro
 
-Basit, güvenli ve çok dilli WhatsApp dışa aktarımlarını görüntüleyin.
+Minimal, offline, multi‑language WhatsApp export viewer.
 
-**[🇺🇸 English](#english) · [🇹🇷 Türkçe](#türkçe)**
+**Languages:** EN • TR • ES • FR • PT-BR • RU • HI • ID (all complete)
 
 </div>
 
 ---
 
-## English <a id="english"></a>
-
-Privacy‑first, fully offline WhatsApp chat export viewer.
-
-### Features
-- 100% offline (no network requests)
-- Multi-language (8) – All languages complete
-- Fast search & basic statistics
-- Light & dark themes
-- Desktop & Web (Windows / macOS / Browser)
-
-### Quick Start
+## Quick Start
 ```bash
 git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git
 cd Whatsapp-Export-Viewer-Pro
@@ -29,135 +18,18 @@ npm install
 npm run dev
 ```
 
----
+## Features
+- 100% offline (privacy-first)
+- Fast search & basic stats
+- Light / Dark themes
+- Desktop (Win / macOS) & Web
+- 8 fully translated languages
 
-## Türkçe <a id="türkçe"></a>
+## Kısa Türkçe Açıklama
+Tamamen çevrimdışı, çok dilli WhatsApp dışa aktarma görüntüleyicisi. Hızlı arama, temel istatistikler ve tema desteği ile verileriniz cihazınızdan çıkmaz.
 
-Gizlilik odaklı, tamamen çevrimdışı WhatsApp dışa aktarma görüntüleyici.
-
-### Özellikler
-- %100 çevrimdışı (ağ isteği yok)
-- Çoklu dil (8) – Tüm diller tamam
-- Hızlı arama ve temel istatistikler
-- Açık & koyu temalar
-- Masaüstü & Web (Windows / macOS / Tarayıcı)
-
-### Hızlı Başlangıç
-```bash
-git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git
-cd Whatsapp-Export-Viewer-Pro
-npm install
-npm run dev
-```
-
----
-
-### Lisans / License
+## License
 MIT
-
-npm install- Easy extensibility for additional languages---
-
-
-
-# 3️⃣ Start development server
-
-npm run dev
-
-📊 **Advanced Analytics**## 💡 Öne Çıkanlar | Highlights
-
-# 4️⃣ Open in browser
-
-# http://localhost:5680- Real-time statistics (messages, media, participants)
-
-```
-
-- Date range analysis • Participant breakdown| Kategori | Özellikler | Açıklama |
-
-#### 💻 Desktop Version
-
-- Media type distribution (images, videos, audio, documents)|----------|------------|----------|
-
-| Platform | Download | Installation |
-
-|----------|----------|--------------|| Performans | Akışkan parsing | Büyük export dosyalarında bloklu işleme |
-
-| **🪟 Windows** | [Latest Release](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases) | Extract ZIP → Run `.exe` |
-
-| **🍎 macOS** | [DMG/Universal](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases) | Open DMG → Drag to Applications |🎨 **Modern Themes**| Gizlilik | %100 Lokal | Hiçbir sunucuya upload yok |
-
-
-
-### 📱 How to Export WhatsApp Chat- **Light Theme**: Clean, WhatsApp-inspired design| Analiz | Mesaj / medya sayımları | Katılımcı, tarih aralığı, tür bazlı |
-
-
-
-```- **Deep Dark Theme**: OLED-friendly high contrast| Medya | Görsel / Video / Ses oynatma | Tarayıcı API + blob URL yönetimi |
-
-1️⃣ Open WhatsApp → Select chat
-
-2️⃣ Tap ⋮ (Android) or chat name (iOS)- Zero-flash loading with inline theme script| Arama | Anında metin arama | Vaka duyarlı olmayan temel filtre |
-
-3️⃣ More → Export Chat → Include Media
-
-4️⃣ Save ZIP file to computer| Arayüz | Light & Deep tema | Inline başlangıç scripti ile “flash” yok |
-
-5️⃣ Drag & drop ZIP into the app
-
-```🖼️ **Rich Media Support**| UX | Drag & Drop ZIP | Otomatik aşamalı ilerleme göstergesi |
-
-
-
-### 🛠️ Build from Source- Inline preview for images, videos, audio| Lokalizasyon | TR + EN (fallback) | JSON tabanlı i18n, kolay genişletilebilir |
-
-
-
-#### Production Build- Drag & drop ZIP import
-
-```bash
-
-npm run build    # Create optimized build- Smart link detection (URLs, emails, phone numbers)### 🌍 Desteklenen Diller / Supported Languages
-
-npm run start    # Start production server
-
-```- Türkçe (tr) – Birincil
-
-
-
-#### Desktop Packaging💻 **Cross-Platform Desktop Apps**- English (en) – Fallback
-
-```bash
-
-# Windows- Windows: Portable ZIP + NSIS Installer- (Hazır Altyapı) Yeni dil eklemek için `locales/<lang>/translation.json` ekleyin ve gerekli anahtarları çevirin.
-
-npm run package:portable     # Portable folder
-
-npm run package:installer    # NSIS installer (.exe)- macOS: DMG + Universal Binary support
-
-npm run package:portable:zip # Portable ZIP
-
-- Electron-based native experience---
-
-# macOS (requires macOS)
-
-npm run package:mac:arm64    # Apple Silicon
-
-npm run package:mac:x64      # Intel
-
-npm run package:mac:universal # Universal binary🔍 **Powerful Search**## 🔐 Gizlilik & Güven | Privacy & Trust
-
-```
-
-- Instant text search across all messagesTüm ayrıştırma (parsing), indeksleme, medya URL oluşturma ve istatistik hesaplama işlemleri tarayıcınızın belleğinde gerçekleşir. Sayfayı kapattığınızda oluşturulan blob URL’leri temizlenir. Application hiç ağ isteği atmadan çalışabilir.
-
-### 🎨 Themes
-
-- Case-insensitive filtering
-
-| Theme | Preview | Description |
-
-|-------|---------|-------------|- Date navigation with smart jump-to-date---
-
-| **🌅 Light** | ![Light](https://via.placeholder.com/100x60/f8f9fa/000?text=Light) | Clean, WhatsApp-inspired design |
 
 | **🌙 Deep Dark** | ![Dark](https://via.placeholder.com/100x60/1a1a1a/fff?text=Dark) | OLED-friendly, high contrast |
 

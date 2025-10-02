@@ -40,7 +40,8 @@
     "package:mac:x64": "npm run prep-electron && electron-builder --mac dmg --x64",
     "package:mac:arm64": "npm run prep-electron && electron-builder --mac dmg --arm64",
     "package:mac:universal": "npm run prep-electron && electron-builder --mac dmg --universal",
-    "package:mac": "npm run package:mac:arm64 && npm run package:mac:x64"
+  "package:mac": "npm run package:mac:arm64 && npm run package:mac:x64",
+  "check:locales": "node scripts/check-locales.js"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.15",

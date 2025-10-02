@@ -51,14 +51,14 @@ WhatsApp Chat Viewer Pro is a modern tool that allows you to view your WhatsApp 
 
 ## ⬇️ İndirme | Download
 
-Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases)
+Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/tag/v3.2.4)
 
 | Platform | İndirme Seçeneği | Dosya |
 |----------|------------------|--------------|
-| Windows | Kurulum (.exe) | [WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/releases/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe) |
-| Windows | Portable (.zip) | [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/releases/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) |
-| macOS | DMG (Apple Silicon / Intel) | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/releases/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg) |
-| macOS | Universal Binary | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/releases/WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip) |
+| Windows | Kurulum (.exe) | [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp.Chat.Viewer.TR.Setup.3.2.4.exe) |
+| Windows | Portable (.zip) | [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) |
+| macOS | DMG (Apple Silicon / Intel) | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg) |
+| macOS | Universal Binary | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip) |
 | Kaynak Kod | Git | `git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git` |
 
 ## 🚀 Kurulum ve Kullanım | Installation and Usage

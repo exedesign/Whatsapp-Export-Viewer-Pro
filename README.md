@@ -2,7 +2,7 @@
 
 # 🌍 WhatsApp Export Viewer Pro
 
-Basit, güvenli ve çok dilli WhatsApp sohbet dışa aktarımlarını görüntüleme aracı.
+Basit, güvenli ve çok dilli WhatsApp dışa aktarımlarını görüntüleyin.
 
 **[🇺🇸 English](#english) · [🇹🇷 Türkçe](#türkçe)**
 
@@ -13,14 +13,14 @@ Basit, güvenli ve çok dilli WhatsApp sohbet dışa aktarımlarını görüntü
 ## English <a id="english"></a>
 
 ### Overview
-WhatsApp Export Viewer Pro is a privacy‑first, fully offline chat export viewer. No veriler sunucuya gönderilmez; everything stays on your machine.
+WhatsApp Export Viewer Pro is a privacy-first, fully offline chat export viewer. Nothing leaves your device.
 
 ### Features
-- 100% offline – no network requests
-- Multi‑language (8 langs) – EN / TR full
-- Fast search & basic stats (messages, participants)
-- Light & dark theme
-- Desktop & web (Windows / macOS / Browser)
+- 100% offline (no network requests)
+- Multi-language (8) – EN & TR complete
+- Fast search & basic statistics
+- Light & dark themes
+- Desktop & Web (Windows / macOS / Browser)
 
 ### Quick Start
 ```bash
@@ -35,14 +35,14 @@ npm run dev
 ## Türkçe <a id="türkçe"></a>
 
 ### Genel Bakış
-WhatsApp Export Viewer Pro gizlilik odaklı, tamamen çevrimdışı çalışan bir sohbet dışa aktarma görüntüleyicisidir. Hiçbir veri dışarı çıkmaz.
+WhatsApp Export Viewer Pro gizlilik odaklı, tamamen çevrimdışı bir sohbet dışa aktarma görüntüleyicisidir. Veri dışarı çıkmaz.
 
 ### Özellikler
-- %100 çevrimdışı – ağ isteği yok
-- Çoklu dil (8 dil) – TR / EN tam
-- Hızlı arama & temel istatistikler
-- Açık & koyu tema
-- Masaüstü ve web (Windows / macOS / Tarayıcı)
+- %100 çevrimdışı (ağ isteği yok)
+- Çoklu dil (8) – TR & EN tam
+- Hızlı arama ve temel istatistikler
+- Açık / koyu temalar
+- Masaüstü ve Web (Windows / macOS / Tarayıcı)
 
 ### Hızlı Başlangıç
 ```bash
@@ -56,67 +56,6 @@ npm run dev
 
 ### Lisans / License
 MIT
-
-    ```![Electron](https://img.shields.io/badge/Electron-28-47848F?style=for-the-badge&logo=electron)
-
-
-3.  **Run the development server:**
-
-    ```bash<a name="english"></a>
-
-    npm run dev
-
-    ```## 🇺🇸 English![i18n](https://img.shields.io/badge/Languages-8-orange?style=for-the-badge&logo=google-translate)![WhatsApp Chat Viewer](https://img.shields.io/badge/WhatsApp-Chat%20Viewer-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
-
-
-
----
-
-
-
-<a name="türkçe"></a>### 🎯 Overview![Next.js](https://img.shields.io/badge/Next.js-13.5.1-000000?style=for-the-badge&logo=next.js&logoColor=white)
-
-
-
-## 🇹🇷 Türkçe
-
-
-
-### 🎯 Genel Bakış**WhatsApp Export Viewer Pro** is a **privacy-first**, completely **offline** chat viewer with **multi-language support** (8 languages), advanced analytics, and native desktop applications. View your WhatsApp exports securely without sending any data to external servers.**[English](#english)** | **[Türkçe](#türkçe)**![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-
-
-
-**WhatsApp Export Viewer Pro**, gizlilik odaklı, tamamen **çevrimdışı** çalışan, çoklu dil desteği, gelişmiş analizler ve yerel masaüstü uygulamaları sunan bir sohbet görüntüleyicidir. WhatsApp dışa aktarımlarınızı harici sunuculara hiçbir veri göndermeden güvenli bir şekilde görüntüleyin.
-
-
-
-### ✨ Temel Özellikler### ✨ Key Features![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-
-
-
-- **%100 Çevrimdışı ve Gizli**: Tüm işlemler yerel olarak yapılır. Hiçbir veri buluta gönderilmez.
-
-- **Çoklu Dil Desteği**: İngilizce ve Türkçe dahil 8 dili doğal olarak destekler.
-
-- **Gelişmiş Analizler**: Ayrıntılı istatistiklerle sohbet geçmişinize ilişkin öngörüler edinin.| 🛡️ **Privacy & Security** | 🌐 **Multi-Language** | 📊 **Analytics** |---![Electron](https://img.shields.io/badge/Electron-28-blue?style=for-the-badge&logo=electron&logoColor=white)
-
-- **Çapraz Platform**: Web sürümü ve Windows & macOS için yerel masaüstü uygulamaları mevcuttur.
-
-- **Modern Arayüz**: Açık ve koyu temalara sahip temiz, duyarlı bir arayüz.|---|---|---|
-
-
-
-### 🚀 Hızlı Başlangıç| **100% Offline Processing** | **8 Languages Supported** | **Advanced Statistics** |
-
-
-
-1.  **Depoyu klonlayın:**| No cloud uploads | Turkish & English (complete) | Message & media counts |
-
-    ```bash
-
-    git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git| Zero network requests | 6 more languages (core) | Participant breakdowns |</div>**Yeni Nesil Deneyim / Next‑Gen UX**  
-
-    cd Whatsapp-Export-Viewer-Pro
 
     ```| Local data processing | Easy translation system | Date range analysis |
 

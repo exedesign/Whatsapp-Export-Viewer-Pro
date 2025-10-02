@@ -36,6 +36,7 @@
     "package:portable:force-icon": "npm run package:portable && node scripts/force-icon.js",
     "package:installer": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& npm run package:portable && electron-builder --win nsis --config electron-builder.yml",
     "package:onefile": "npm run package:portable && powershell -ExecutionPolicy Bypass -File scripts/make-sfx.ps1",
+    "package:singleexe": "npm run prep-electron && electron-builder --win portable --config electron-builder.yml",
     "package:portable:zip": "powershell -NoLogo -NoProfile -Command Compress-Archive -Force -Path 'portable/WhatsApp Chat Viewer TR-win32-x64/*' -DestinationPath 'dist/WhatsApp-Chat-Viewer-TR-portable-%npm_package_version%.zip'",
     "package:mac:x64": "npm run prep-electron && electron-builder --mac dmg --x64",
     "package:mac:arm64": "npm run prep-electron && electron-builder --mac dmg --arm64",

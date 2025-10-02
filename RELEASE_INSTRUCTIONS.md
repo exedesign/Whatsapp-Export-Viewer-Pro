@@ -24,6 +24,7 @@
 5. Dosyalarınızı yükleyin (releases dizinindeki dosyaları kullanabilirsiniz):
    - `WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe`
    - `WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip`
+   - `WhatsApp-Chat-Viewer-TR-OneFile-3.2.4.exe`
    - `WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg`
    - `WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip`
 

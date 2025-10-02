@@ -1,84 +1,165 @@
-<div align="center"><div align="center"><<<<<<< HEAD
+<div align="center"><div align="center"><div align="center"><<<<<<< HEAD
 
 
 
-# 🌍 WhatsApp Export Viewer Pro<div align="center">
+# 🌍 WhatsApp Export Viewer Pro
 
 
 
-**Modern • Secure • Multilingual WhatsApp Chat Analyzer**  # 📱 WhatsApp Export Viewer Pro=======
+**Modern • Secure • Multilingual WhatsApp Chat Analyzer**# 🌍 WhatsApp Export Viewer Pro<div align="center">
 
-**Modern • Güvenli • Çok Dilli WhatsApp Sohbet Analiz Aracı**
 
-# WhatsApp Chat Viewer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+**[🇺🇸 English](#-english) • [🇹🇷 Türkçe](#-türkçe)**
 
-![Next.js](https://img.shields.io/badge/Next.js-13.5-black?logo=next.js)**Modern, Secure, Fully Offline WhatsApp Chat Analyzer**  >>>>>>> 4e1d554f6c8733f8dd39137ecaa1e076d3b19ab9
 
-![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?logo=typescript)
 
-![Electron](https://img.shields.io/badge/Electron-28-47848F?logo=electron)**Modern, Güvenli, Tamamen Çevrimdışı WhatsApp Sohbet Analiz Aracı**
+</div>**Modern • Secure • Multilingual WhatsApp Chat Analyzer**  # 📱 WhatsApp Export Viewer Pro=======
 
-![Languages](https://img.shields.io/badge/Languages-8-orange?logo=google-translate)
 
-# WhatsApp Chat Viewer
 
-**[🇺🇸 English](#english)** • **[🇹🇷 Türkçe](#türkçe)**
+---**Modern • Güvenli • Çok Dilli WhatsApp Sohbet Analiz Aracı**
 
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
-![WhatsApp Export Viewer Pro](https://user-images.githubusercontent.com/placeholder/demo-screenshot.png)
 
-![Next.js](https://img.shields.io/badge/Next.js-13.5-black?style=for-the-badge&logo=next.js)**Hızlı, güvenli, tamamen çevrimdışı WhatsApp sohbet analiz aracı**  
+<a name="english"></a># WhatsApp Chat Viewer
 
-</div>
 
-![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=for-the-badge&logo=typescript)**Fast, secure and 100% offline WhatsApp chat insight tool**
 
----
+## 🇺🇸 English[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+
+
+### 🎯 Overview![Next.js](https://img.shields.io/badge/Next.js-13.5-black?logo=next.js)**Modern, Secure, Fully Offline WhatsApp Chat Analyzer**  >>>>>>> 4e1d554f6c8733f8dd39137ecaa1e076d3b19ab9
+
+
+
+**WhatsApp Export Viewer Pro** is a privacy-first, completely **offline** chat viewer with multi-language support, advanced analytics, and native desktop applications. View your WhatsApp exports securely without sending any data to external servers.![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?logo=typescript)
+
+
+
+### ✨ Key Features![Electron](https://img.shields.io/badge/Electron-28-47848F?logo=electron)**Modern, Güvenli, Tamamen Çevrimdışı WhatsApp Sohbet Analiz Aracı**
+
+
+
+- **100% Offline & Private**: All processing happens locally. No data is ever sent to the cloud.![Languages](https://img.shields.io/badge/Languages-8-orange?logo=google-translate)
+
+- **Multi-Language Support**: Natively supports 8 languages, including English and Turkish.
+
+- **Advanced Analytics**: Get insights into your chat history with detailed statistics.# WhatsApp Chat Viewer
+
+- **Cross-Platform**: Available as a web version and as native desktop apps for Windows & macOS.
+
+- **Modern UI**: A clean, responsive interface with light and dark themes.**[🇺🇸 English](#english)** • **[🇹🇷 Türkçe](#türkçe)**
+
+
+
+### 🚀 Quick Start![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+
+
+
+1.  **Clone the repository:**![WhatsApp Export Viewer Pro](https://user-images.githubusercontent.com/placeholder/demo-screenshot.png)
+
+    ```bash
+
+    git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git![Next.js](https://img.shields.io/badge/Next.js-13.5-black?style=for-the-badge&logo=next.js)**Hızlı, güvenli, tamamen çevrimdışı WhatsApp sohbet analiz aracı**  
+
+    cd Whatsapp-Export-Viewer-Pro
+
+    ```</div>
+
+
+
+2.  **Install dependencies:**![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=for-the-badge&logo=typescript)**Fast, secure and 100% offline WhatsApp chat insight tool**
+
+    ```bash
+
+    npm install---
+
+    ```
 
 ![Electron](https://img.shields.io/badge/Electron-28-47848F?style=for-the-badge&logo=electron)
 
-<a name="english"></a>
+3.  **Run the development server:**
 
-## 🇺🇸 English![i18n](https://img.shields.io/badge/Languages-8-orange?style=for-the-badge&logo=google-translate)![WhatsApp Chat Viewer](https://img.shields.io/badge/WhatsApp-Chat%20Viewer-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
+    ```bash<a name="english"></a>
 
+    npm run dev
 
-
-### 🎯 Overview![Next.js](https://img.shields.io/badge/Next.js-13.5.1-000000?style=for-the-badge&logo=next.js&logoColor=white)
-
-
-
-**WhatsApp Export Viewer Pro** is a **privacy-first**, completely **offline** chat viewer with **multi-language support** (8 languages), advanced analytics, and native desktop applications. View your WhatsApp exports securely without sending any data to external servers.**[English](#english)** | **[Türkçe](#türkçe)**![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+    ```## 🇺🇸 English![i18n](https://img.shields.io/badge/Languages-8-orange?style=for-the-badge&logo=google-translate)![WhatsApp Chat Viewer](https://img.shields.io/badge/WhatsApp-Chat%20Viewer-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
 
 
 
-### ✨ Key Features![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+---
 
 
 
-| 🛡️ **Privacy & Security** | 🌐 **Multi-Language** | 📊 **Analytics** |---![Electron](https://img.shields.io/badge/Electron-28-blue?style=for-the-badge&logo=electron&logoColor=white)
+<a name="türkçe"></a>### 🎯 Overview![Next.js](https://img.shields.io/badge/Next.js-13.5.1-000000?style=for-the-badge&logo=next.js&logoColor=white)
 
-|---|---|---|
 
-| **100% Offline Processing** | **8 Languages Supported** | **Advanced Statistics** |
 
-| No cloud uploads | Turkish & English (complete) | Message & media counts |
+## 🇹🇷 Türkçe
 
-| Zero network requests | 6 more languages (core) | Participant breakdowns |</div>**Yeni Nesil Deneyim / Next‑Gen UX**  
 
-| Local data processing | Easy translation system | Date range analysis |
 
-Light & Deep temalar, canlı medya önizleme, detaylı istatistikler ve çok hızlı arama.
+### 🎯 Genel Bakış**WhatsApp Export Viewer Pro** is a **privacy-first**, completely **offline** chat viewer with **multi-language support** (8 languages), advanced analytics, and native desktop applications. View your WhatsApp exports securely without sending any data to external servers.**[English](#english)** | **[Türkçe](#türkçe)**![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
-| 🎨 **Modern UI** | 💻 **Cross-Platform** | 🔍 **Smart Features** |
+
+
+**WhatsApp Export Viewer Pro**, gizlilik odaklı, tamamen **çevrimdışı** çalışan, çoklu dil desteği, gelişmiş analizler ve yerel masaüstü uygulamaları sunan bir sohbet görüntüleyicidir. WhatsApp dışa aktarımlarınızı harici sunuculara hiçbir veri göndermeden güvenli bir şekilde görüntüleyin.
+
+
+
+### ✨ Temel Özellikler### ✨ Key Features![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
+
+
+- **%100 Çevrimdışı ve Gizli**: Tüm işlemler yerel olarak yapılır. Hiçbir veri buluta gönderilmez.
+
+- **Çoklu Dil Desteği**: İngilizce ve Türkçe dahil 8 dili doğal olarak destekler.
+
+- **Gelişmiş Analizler**: Ayrıntılı istatistiklerle sohbet geçmişinize ilişkin öngörüler edinin.| 🛡️ **Privacy & Security** | 🌐 **Multi-Language** | 📊 **Analytics** |---![Electron](https://img.shields.io/badge/Electron-28-blue?style=for-the-badge&logo=electron&logoColor=white)
+
+- **Çapraz Platform**: Web sürümü ve Windows & macOS için yerel masaüstü uygulamaları mevcuttur.
+
+- **Modern Arayüz**: Açık ve koyu temalara sahip temiz, duyarlı bir arayüz.|---|---|---|
+
+
+
+### 🚀 Hızlı Başlangıç| **100% Offline Processing** | **8 Languages Supported** | **Advanced Statistics** |
+
+
+
+1.  **Depoyu klonlayın:**| No cloud uploads | Turkish & English (complete) | Message & media counts |
+
+    ```bash
+
+    git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git| Zero network requests | 6 more languages (core) | Participant breakdowns |</div>**Yeni Nesil Deneyim / Next‑Gen UX**  
+
+    cd Whatsapp-Export-Viewer-Pro
+
+    ```| Local data processing | Easy translation system | Date range analysis |
+
+
+
+2.  **Bağımlılıkları yükleyin:**Light & Deep temalar, canlı medya önizleme, detaylı istatistikler ve çok hızlı arama.
+
+    ```bash
+
+    npm install| 🎨 **Modern UI** | 💻 **Cross-Platform** | 🔍 **Smart Features** |
+
+    ```
 
 |---|---|---|<a name="english"></a>
 
-| **Light & Deep Dark Themes** | **Desktop Applications** | **Powerful Search** |
+3.  **Geliştirme sunucusunu çalıştırın:**
 
-| WhatsApp-inspired design | Windows (portable + installer) | Instant text search |## 🌍 English**Çoklu Dil Desteği / Multi-Language Support**  
+    ```bash| **Light & Deep Dark Themes** | **Desktop Applications** | **Powerful Search** |
+
+    npm run dev
+
+    ```| WhatsApp-inspired design | Windows (portable + installer) | Instant text search |## 🌍 English**Çoklu Dil Desteği / Multi-Language Support**  
+
 
 | Zero-flash loading | macOS (DMG + universal) | Smart link detection |
 

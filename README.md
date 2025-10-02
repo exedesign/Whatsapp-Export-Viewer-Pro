@@ -10,6 +10,19 @@ Minimal, offline, multi‑language WhatsApp export viewer.
 
 ---
 
+## Download
+Latest release: https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases
+
+| Platform | Type | File (example) |
+|----------|------|----------------|
+| Windows  | Installer (.exe) | WhatsApp Chat Viewer TR Setup x.y.z.exe |
+| Windows  | Portable (.zip)  | WhatsApp-Chat-Viewer-TR-portable-x.y.z.zip |
+| macOS    | DMG (arm64/x64)  | WhatsApp-Chat-Viewer-TR-x.y.z.dmg |
+| macOS    | Universal (ops.) | WhatsApp-Chat-Viewer-TR-x.y.z-mac.zip |
+| Source   | Git Tag          | vX.Y.Z |
+
+Replace x.y.z with the tagged version you need.
+
 ## Quick Start
 ```bash
 git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git
@@ -31,93 +44,9 @@ Tamamen çevrimdışı, çok dilli WhatsApp dışa aktarma görüntüleyicisi. H
 ## License
 MIT
 
-| **🌙 Deep Dark** | ![Dark](https://via.placeholder.com/100x60/1a1a1a/fff?text=Dark) | OLED-friendly, high contrast |
+---
 
-| **⚙️ System** | ![Auto](https://via.placeholder.com/100x60/666/fff?text=Auto) | Follow OS preference |
-
----**🙏 Teşekkür (Upstream Credit)**  
-
-### 📊 Analytics & Features
-
-Bu çalışma; temel alınan açık kaynak proje [abishekvenkat/whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader) üzerine modern Türkçe deneyimi, tematik tasarım, masaüstü paketleme ve gelişmiş analiz özellikleri ekleyerek genişletilmiştir. Orijinal emek için @abishekvenkat’e teşekkürler.
-
-<details>
-
-<summary><strong>📈 Message Analytics</strong></summary>### 🌍 Supported Languages
-
-
-
-- **Total message count** with date range**👨‍💻 Geliştirici | Developer:** Fatih Eke  
-
-- **Participant breakdown** (message count per user)
-
-- **Media distribution** (images, videos, audio, documents)| Code | Language | Native Name | Status |**📅 Yıl | Year:** 2025  
-
-- **Chat timeline** and activity patterns
-
-- **Export statistics** to CSV/JSON *(coming in v3.3)*|------|----------|-------------|--------|**🔖 Sürüm | Version:** 3.2.x (bkz. Release & tag)  
-
-
-
-</details>| **tr** | Turkish | Türkçe | ✅ Complete |
-
-
-
-<details>| **en** | English | English | ✅ Complete |---
-
-<summary><strong>🖼️ Rich Media Support</strong></summary>
-
-| **es** | Spanish | Español | ⚙️ Core Features |
-
-- **Inline preview** for images, videos, audio
-
-- **Full-screen media viewer** with zoom controls| **fr** | French | Français | ⚙️ Core Features |## ✨ Özellikler | Features
-
-- **Smart link detection** (URLs, emails, phone numbers)
-
-- **Drag & drop** ZIP file import| **pt-BR** | Portuguese (Brazil) | Português (Brasil) | ⚙️ Core Features |
-
-- **Bulk processing** for multiple chat exports
-
-| **ru** | Russian | Русский | ⚙️ Core Features |### 🚀 **Core Features**
-
-</details>
-
-| **hi** | Hindi | हिन्दी | ⚙️ Core Features |- � **Tamamen Çevrimdışı**: Verileriniz tamamen yerel olarak işlenir
-
-<details>
-
-<summary><strong>🔍 Search & Navigation</strong></summary>| **id** | Indonesian | Bahasa Indonesia | ⚙️ Core Features |- 🇹🇷 **Türkçe Lokalizasyon**: Tam Türkçe arayüz ve mesajlar
-
-
-
-- **Instant text search** across all messages- 🎯 **Sürükle-Bırak Desteği**: ZIP dosyalarını doğrudan sürükleyip bırakın
-
-- **Case-insensitive filtering**
-
-- **Jump to date** with smart navigation> **Core Features**: Essential UI strings translated. **Complete**: Full interface + all feature strings.- � **Real-time Progress Tracking**: 4-aşamalı yükleme göstergesi
-
-- **Participant filtering** *(coming in v3.4)*
-
-- **Advanced search** with regex *(roadmap)*- �️ **Medya Önizleme**: Resim, video ve ses dosyaları için inline preview
-
-
-
-</details>**Want to contribute a translation?**  
-
-
-
-### 🛡️ Privacy & SecurityAdd a new `locales/<lang>/common.json` file following the existing structure. See [Contributing](#-contributing) section.### 📈 **Advanced Analytics**
-
-
-
-| Feature | Status | Description |- 📊 **Detaylı İstatistikler**: Mesaj sayısı, katılımcı sayısı, tarih aralığı
-
-|---------|--------|-------------|
-
-| **🔒 Offline Processing** | ✅ **100% Local** | All data processed in your browser/app |---- 🎭 **Medya Analizi**: Resim, video, ses ve doküman sayıları
-
-| **🚫 No Cloud Upload** | ✅ **Guaranteed** | Data never leaves your device |
+Upstream project credit: [abishekvenkat/whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader)
 
 | **🕵️ Zero Telemetry** | ✅ **No Tracking** | No analytics or tracking scripts |- ⏱️ **Sohbet Süresi**: Toplam sohbet süresini hesaplama
 

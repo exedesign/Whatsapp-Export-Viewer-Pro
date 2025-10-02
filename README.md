@@ -1,53 +1,104 @@
 <div align="center">
 
-# 🌍 WhatsApp Export Viewer Pro
+# 🌍 WhatsApp Sohbet Görüntüleyici Pro
 
-Minimal, offline, multi‑language WhatsApp export viewer.
+![Sürüm](https://img.shields.io/badge/Sürüm-3.2.4-brightgreen)
+![Lisans](https://img.shields.io/badge/Lisans-MIT-blue)
+![Diller](https://img.shields.io/badge/Diller-8-orange)
+![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Windows%20%7C%20macOS-lightgrey)
 
-**Languages:** EN • TR • ES • FR • PT-BR • RU • HI • ID (all complete)
+**Gizlilik odaklı, tamamen çevrimdışı, çok dilli WhatsApp sohbet görüntüleyicisi.**
+
+<img src="https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/public/app-preview.png" alt="Uygulama Önizleme" width="650" />
+
+**Desteklenen Diller:** Türkçe • İngilizce • İspanyolca • Fransızca • Portekizce (BR) • Rusça • Hintçe • Endonezce
 
 </div>
 
 ---
 
-## Download
-Latest release: https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases
+## 📋 Genel Bakış
 
-| Platform | Type | File (example) |
-|----------|------|----------------|
-| Windows  | Installer (.exe) | WhatsApp Chat Viewer TR Setup x.y.z.exe |
-| Windows  | Portable (.zip)  | WhatsApp-Chat-Viewer-TR-portable-x.y.z.zip |
-| macOS    | DMG (arm64/x64)  | WhatsApp-Chat-Viewer-TR-x.y.z.dmg |
-| macOS    | Universal (ops.) | WhatsApp-Chat-Viewer-TR-x.y.z-mac.zip |
-| Source   | Git Tag          | vX.Y.Z |
+WhatsApp Sohbet Görüntüleyici Pro, WhatsApp sohbet dışa aktarımlarınızı **tamamen çevrimdışı olarak** ve **gizliliğinize saygı duyarak** görüntülemenizi sağlayan modern bir araçtır. Verileriniz asla sunuculara gönderilmez, tamamen yerel olarak işlenir.
 
-Replace x.y.z with the tagged version you need.
+### ✨ Temel Özellikler
 
-## Quick Start
+- **🔒 %100 Çevrimdışı İşleme:** Hiçbir veri sunuculara gönderilmez
+- **🌐 8 Dil Desteği:** Türkçe, İngilizce ve 6 farklı dil
+- **🖼️ Zengin Medya Desteği:** Resim, video ve ses dosyaları önizleme
+- **🔍 Hızlı Arama:** Anlık mesaj arama
+- **📊 İstatistikler:** Mesaj ve katılımcı analizleri
+- **🎨 Tema Seçenekleri:** Açık, Koyu ve WhatsApp teması
+- **💻 Çapraz Platform:** Web, Windows ve macOS
+
+## ⬇️ İndirme
+
+Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases)
+
+| Platform | İndirme Seçeneği | Dosya Örneği |
+|----------|------------------|--------------|
+| Windows | Kurulum (.exe) | WhatsApp Chat Viewer TR Setup 3.2.4.exe |
+| Windows | Portable (.zip) | WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip |
+| macOS | DMG (Apple Silicon / Intel) | WhatsApp-Chat-Viewer-TR-3.2.4.dmg |
+| macOS | Universal Binary | WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip |
+| Kaynak Kod | Git | `git clone` veya GitHub'dan ZIP indirme |
+
+## 🚀 Kurulum ve Kullanım
+
+### Web Versiyonu
+
 ```bash
 git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git
 cd Whatsapp-Export-Viewer-Pro
 npm install
 npm run dev
+# Tarayıcınızda http://localhost:5680 adresini açın
 ```
 
-## Features
-- 100% offline (privacy-first)
-- Fast search & basic stats
-- Light / Dark themes
-- Desktop (Win / macOS) & Web
-- 8 fully translated languages
+### Masaüstü Sürümü
 
-## Kısa Türkçe Açıklama
-Tamamen çevrimdışı, çok dilli WhatsApp dışa aktarma görüntüleyicisi. Hızlı arama, temel istatistikler ve tema desteği ile verileriniz cihazınızdan çıkmaz.
+1. Windows: Kurulum dosyasını indirip çalıştırın veya portable ZIP'i çıkarın
+2. macOS: DMG'yi açın ve Applications klasörüne sürükleyin
+3. WhatsApp'tan dışa aktardığınız ZIP dosyasını uygulamaya sürükleyin
 
-## License
-MIT
+## 📱 WhatsApp Sohbetinizi Dışa Aktarma
+
+1. WhatsApp'ta görüntülemek istediğiniz sohbeti açın
+2. **⋮** (Android) veya sohbet adı (iOS) → **Diğer** → **Sohbeti Dışa Aktar** seçeneğine tıklayın
+3. **Medya Dahil Et** seçeneğini seçin (önerilen)
+4. ZIP dosyasını bilgisayarınıza kaydedin
+5. Uygulamaya ZIP dosyasını sürükleyip bırakın veya "Yükle" butonunu kullanın
+
+## 🛠️ Teknik Detaylar
+
+- **Framework:** Next.js 13.5 (App Router)
+- **Dil:** TypeScript 5.2
+- **Stil:** Tailwind CSS 3.3
+- **UI:** Radix UI (shadcn/ui)
+- **Masaüstü:** Electron 28
+- **i18n:** react-i18next
+- **Dosya İşleme:** JSZip
+
+## 🤝 Katkıda Bulunma
+
+Katkılarınızı bekliyoruz! Özellikle aşağıdaki alanlarda yardıma ihtiyacımız var:
+
+- Çeviri geliştirmeleri
+- Erişilebilirlik iyileştirmeleri
+- Performans optimizasyonları
+- Yeni özellikler
+
+Katkıda bulunmak için fork edip pull request gönderebilirsiniz.
+
+## 📝 Lisans
+
+MIT Lisansı - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ---
 
-Upstream project credit: [abishekvenkat/whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader)
+<div align="center">
 
+**Bu proje [whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader) üzerine kurulmuştur.**  
+**Türkiye'de ❤️ ile geliştirilmiştir**
 
-
-### 🧪 Development
+</div>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div align="center">
+=======
+# WhatsApp Chat Viewer
+>>>>>>> 4e1d554f6c8733f8dd39137ecaa1e076d3b19ab9
 
 # WhatsApp Chat Viewer
 

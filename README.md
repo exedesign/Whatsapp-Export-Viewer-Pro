@@ -12,12 +12,11 @@ Basit, güvenli ve çok dilli WhatsApp dışa aktarımlarını görüntüleyin.
 
 ## English <a id="english"></a>
 
-### Overview
-WhatsApp Export Viewer Pro is a privacy-first, fully offline chat export viewer. Nothing leaves your device.
+Privacy‑first, fully offline WhatsApp chat export viewer.
 
 ### Features
 - 100% offline (no network requests)
-- Multi-language (8) – EN & TR complete
+- Multi-language (8) – All languages complete
 - Fast search & basic statistics
 - Light & dark themes
 - Desktop & Web (Windows / macOS / Browser)
@@ -34,15 +33,14 @@ npm run dev
 
 ## Türkçe <a id="türkçe"></a>
 
-### Genel Bakış
-WhatsApp Export Viewer Pro gizlilik odaklı, tamamen çevrimdışı bir sohbet dışa aktarma görüntüleyicisidir. Veri dışarı çıkmaz.
+Gizlilik odaklı, tamamen çevrimdışı WhatsApp dışa aktarma görüntüleyici.
 
 ### Özellikler
 - %100 çevrimdışı (ağ isteği yok)
-- Çoklu dil (8) – TR & EN tam
+- Çoklu dil (8) – Tüm diller tamam
 - Hızlı arama ve temel istatistikler
-- Açık / koyu temalar
-- Masaüstü ve Web (Windows / macOS / Tarayıcı)
+- Açık & koyu temalar
+- Masaüstü & Web (Windows / macOS / Tarayıcı)
 
 ### Hızlı Başlangıç
 ```bash
@@ -56,87 +54,6 @@ npm run dev
 
 ### Lisans / License
 MIT
-
-    ```| Local data processing | Easy translation system | Date range analysis |
-
-
-
-2.  **Bağımlılıkları yükleyin:**Light & Deep temalar, canlı medya önizleme, detaylı istatistikler ve çok hızlı arama.
-
-    ```bash
-
-    npm install| 🎨 **Modern UI** | 💻 **Cross-Platform** | 🔍 **Smart Features** |
-
-    ```
-
-|---|---|---|<a name="english"></a>
-
-3.  **Geliştirme sunucusunu çalıştırın:**
-
-    ```bash| **Light & Deep Dark Themes** | **Desktop Applications** | **Powerful Search** |
-
-    npm run dev
-
-    ```| WhatsApp-inspired design | Windows (portable + installer) | Instant text search |## 🌍 English**Çoklu Dil Desteği / Multi-Language Support**  
-
-
-| Zero-flash loading | macOS (DMG + universal) | Smart link detection |
-
-| Responsive layout | Web version available | Media preview |Arayüz ve temel metinler; Türkçe (TR) + İngilizce (EN) çekirdek olmak üzere ilerleyen sürümlerde ek dil paketleriyle genişleyebilir yapıdadır. i18n altyapısı yeni JSON ekleyerek kolay çeviri imkânı sunar.
-
-
-
-### 🌍 Supported Languages### 🎯 Overview
-
-
-
-| Language | Code | Status | Native Name |</div>
-
-|----------|------|--------|-------------|
-
-| 🇹🇷 **Turkish** | `tr` | ✅ **Complete** | Türkçe |**WhatsApp Export Viewer Pro** is a privacy-first, completely offline chat viewer with **multi-language support** (8 languages), advanced analytics, and native desktop apps for Windows & macOS. View your WhatsApp exports securely without sending any data to external servers.
-
-| 🇺🇸 **English** | `en` | ✅ **Complete** | English |
-
-| 🇪🇸 **Spanish** | `es` | ⚙️ Core Features | Español |---
-
-| 🇫🇷 **French** | `fr` | ⚙️ Core Features | Français |
-
-| 🇧🇷 **Portuguese (BR)** | `pt-BR` | ⚙️ Core Features | Português (Brasil) |### ✨ Key Features
-
-| 🇷🇺 **Russian** | `ru` | ⚙️ Core Features | Русский |
-
-| 🇮🇳 **Hindi** | `hi` | ⚙️ Core Features | हिन्दी |## 🚀 Neden Bu Uygulama? | Why This App?
-
-| 🇮🇩 **Indonesian** | `id` | ⚙️ Core Features | Bahasa Indonesia |
-
-🔐 **100% Offline & Private**Türkçe odaklı, gizlilik öncelikli ve kurulum gerektirmeden (web) ya da tek tıkla (desktop) çalışan bir WhatsApp sohbet görüntüleyiciye ihtiyaç vardı. Bu proje:  
-
-> **✅ Complete**: Full interface translation  
-
-> **⚙️ Core Features**: Essential UI elements translated- All processing happens locally in your browser/desktop app- Hiçbir veriyi uzak sunucuya göndermez (tamamen offline)  
-
-
-
-### 🚀 Quick Start- Zero network requests • No cloud uploads • Complete data sovereignty- Büyük ZIP arşivlerinde akıcı performans  
-
-
-
-#### 🌐 Web Version- Medya (görsel / video / ses) inline inceleme  
-
-
-
-```bash🌐 **Multi-Language Support**- İstatistik & katılımcı bazlı dağılım  
-
-# 1️⃣ Clone the repository
-
-git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git- **8 Languages** with intelligent fallback system- Çoklu tema + erişilebilirlik odaklı renk sistemi  
-
-cd Whatsapp-Export-Viewer-Pro
-
-- Native UI translations for all core features
-
-# 2️⃣ Install dependencies
 
 npm install- Easy extensibility for additional languages---
 

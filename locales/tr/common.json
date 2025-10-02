@@ -45,6 +45,8 @@
   "error.noChatFile": "ZIP dosyasında _chat.txt dosyası bulunamadı.",
   "error.invalidZip": "ZIP dosyası işlenirken hata oluştu.",
   "error.audioLoad": "Ses dosyası yüklenemedi",
+  "media.show": "Göster",
+  "media.download": "İndir",
   "media.fullscreen": "Tam Ekran",
   "media.videoFile": "Video Dosyası",
   "media.audioFile": "Ses Dosyası",

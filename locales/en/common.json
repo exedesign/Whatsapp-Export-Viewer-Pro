@@ -45,6 +45,8 @@
   "error.noChatFile": "_chat.txt file not found in ZIP.",
   "error.invalidZip": "An error occurred while processing the ZIP.",
   "error.audioLoad": "Audio file could not be loaded",
+  "media.show": "Show",
+  "media.download": "Download",
   "media.fullscreen": "Full Screen",
   "media.videoFile": "Video File",
   "media.audioFile": "Audio File",

@@ -49,35 +49,57 @@ WhatsApp Chat Viewer Pro is a modern tool that allows you to view your WhatsApp 
 - **🎨 Theme Options:** Light, Dark and WhatsApp theme
 - **💻 Cross Platform:** Web, Windows and macOS
 
-## ⬇️ İndirme
+## ⬇️ İndirme | Download
 
 Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases)
 
-| Platform | İndirme Seçeneği | Dosya Örneği |
+| Platform | İndirme Seçeneği | Dosya |
 |----------|------------------|--------------|
-| Windows | Kurulum (.exe) | WhatsApp Chat Viewer TR Setup 3.2.4.exe |
-| Windows | Portable (.zip) | WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip |
-| macOS | DMG (Apple Silicon / Intel) | WhatsApp-Chat-Viewer-TR-3.2.4.dmg |
-| macOS | Universal Binary | WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip |
-| Kaynak Kod | Git | `git clone` veya GitHub'dan ZIP indirme |
+| Windows | Kurulum (.exe) | [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe) |
+| Windows | Portable (.zip) | [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) |
+| macOS | DMG (Apple Silicon / Intel) | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg) |
+| macOS | Universal Binary | [WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.zip) |
+| Kaynak Kod | Git | `git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git` |
 
-## 🚀 Kurulum ve Kullanım
+## 🚀 Kurulum ve Kullanım | Installation and Usage
 
-### Web Versiyonu
+### 💻 Masaüstü Sürümü | Desktop Version
+
+**🇹🇷 Türkçe:**
+1. **Windows:**
+   - **Kurulum:** [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe) dosyasını indirip çalıştırın
+   - **Portable:** [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) dosyasını indirip ZIP'i çıkarın
+2. **macOS:**
+   - [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg) dosyasını indirip açın
+   - Uygulamayı Applications klasörüne sürükleyin
+3. WhatsApp'tan dışa aktardığınız ZIP dosyasını uygulamaya sürükleyip bırakın
+
+**🇺🇸 English:**
+1. **Windows:**
+   - **Installer:** Download and run [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe)
+   - **Portable:** Download and extract [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip)
+2. **macOS:**
+   - Download and open [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg)
+   - Drag the application to the Applications folder
+3. Drag and drop your WhatsApp export ZIP file onto the application
+
+### 🌐 Web Versiyonu | Web Version
 
 ```bash
+# Kaynak kodu indirme | Clone the repository
 git clone https://github.com/exedesign/Whatsapp-Export-Viewer-Pro.git
+
+# Proje klasörüne geçiş | Change to project directory
 cd Whatsapp-Export-Viewer-Pro
+
+# Bağımlılıkları yükleme | Install dependencies
 npm install
+
+# Geliştirme sunucusunu başlatma | Start development server
 npm run dev
-# Tarayıcınızda http://localhost:5680 adresini açın
+
+# Tarayıcınızda http://localhost:5680 adresini açın | Open http://localhost:5680 in your browser
 ```
-
-### Masaüstü Sürümü
-
-1. Windows: Kurulum dosyasını indirip çalıştırın veya portable ZIP'i çıkarın
-2. macOS: DMG'yi açın ve Applications klasörüne sürükleyin
-3. WhatsApp'tan dışa aktardığınız ZIP dosyasını uygulamaya sürükleyin
 
 ## 📱 WhatsApp Sohbetinizi Dışa Aktarma
 

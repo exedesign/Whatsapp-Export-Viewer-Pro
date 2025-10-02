@@ -6,23 +6,32 @@
 ![Lisans](https://img.shields.io/badge/Lisans-MIT-blue)
 ![Diller](https://img.shields.io/badge/Diller-8-orange)
 ![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Windows%20%7C%20macOS-lightgrey)
+![Ülke](https://img.shields.io/badge/Made%20in-Turkey-red)
 
-**Gizlilik odaklı, tamamen çevrimdışı, çok dilli WhatsApp sohbet görüntüleyicisi.**
+**Gizlilik odaklı, tamamen çevrimdışı, çok dilli WhatsApp sohbet görüntüleyicisi.**  
+**Privacy-focused, completely offline, multi-language WhatsApp chat viewer.**
 
 <img src="https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/raw/main/public/app-preview.png" alt="Uygulama Önizleme" width="650" />
 
-**Desteklenen Diller:** Türkçe • İngilizce • İspanyolca • Fransızca • Portekizce (BR) • Rusça • Hintçe • Endonezce
+**Desteklenen Diller | Supported Languages:**  
+🇹🇷 Türkçe • 🇺🇸 İngilizce (English) • 🇪🇸 İspanyolca (Español) • 🇫🇷 Fransızca (Français)  
+🇧🇷 Portekizce (Português) • 🇷🇺 Rusça (Русский) • 🇮🇳 Hintçe (हिन्दी) • 🇮🇩 Endonezce (Bahasa Indonesia)
 
 </div>
 
 ---
 
-## 📋 Genel Bakış
+## 📋 Genel Bakış | Overview
 
+**🇹🇷 Türkçe:**  
 WhatsApp Sohbet Görüntüleyici Pro, WhatsApp sohbet dışa aktarımlarınızı **tamamen çevrimdışı olarak** ve **gizliliğinize saygı duyarak** görüntülemenizi sağlayan modern bir araçtır. Verileriniz asla sunuculara gönderilmez, tamamen yerel olarak işlenir.
 
-### ✨ Temel Özellikler
+**🇺🇸 English:**  
+WhatsApp Chat Viewer Pro is a modern tool that allows you to view your WhatsApp chat exports **completely offline** and **with respect for your privacy**. Your data is never sent to servers, it is processed entirely locally.
 
+### ✨ Temel Özellikler | Key Features
+
+**🇹🇷 Türkçe:**
 - **🔒 %100 Çevrimdışı İşleme:** Hiçbir veri sunuculara gönderilmez
 - **🌐 8 Dil Desteği:** Türkçe, İngilizce ve 6 farklı dil
 - **🖼️ Zengin Medya Desteği:** Resim, video ve ses dosyaları önizleme
@@ -30,6 +39,15 @@ WhatsApp Sohbet Görüntüleyici Pro, WhatsApp sohbet dışa aktarımlarınızı
 - **📊 İstatistikler:** Mesaj ve katılımcı analizleri
 - **🎨 Tema Seçenekleri:** Açık, Koyu ve WhatsApp teması
 - **💻 Çapraz Platform:** Web, Windows ve macOS
+
+**🇺🇸 English:**
+- **🔒 100% Offline Processing:** No data is sent to servers
+- **🌐 8 Language Support:** English, Turkish and 6 other languages
+- **🖼️ Rich Media Support:** Image, video and audio file preview
+- **🔍 Fast Search:** Instant message search
+- **📊 Statistics:** Message and participant analysis
+- **🎨 Theme Options:** Light, Dark and WhatsApp theme
+- **💻 Cross Platform:** Web, Windows and macOS
 
 ## ⬇️ İndirme
 
@@ -99,6 +117,10 @@ MIT Lisansı - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 <div align="center">
 
 **Bu proje [whatsapp-export-reader](https://github.com/abishekvenkat/whatsapp-export-reader) üzerine kurulmuştur.**  
-**Türkiye'de ❤️ ile geliştirilmiştir**
+**Katkı sağlayan tüm geliştiricilere teşekkür ederiz!**  
+**Thanks to all contributors who shared their code and ideas!**
+
+**🇹🇷 Türkiye'de ❤️ ile geliştirilmiştir**  
+**🇺🇸 Made with ❤️ in Turkey**
 
 </div>

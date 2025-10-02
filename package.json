@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-viewer-tr",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "private": false,
   "description": "Offline, privacy-first WhatsApp chat viewer & analyzer with multi-language (TR+EN) support, media previews, themes and fast search.",
   "author": "Fatih Eke <fatiheke@gmail.com>",

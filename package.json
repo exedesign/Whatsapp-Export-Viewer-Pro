@@ -32,6 +32,7 @@
     "electron": "electron .",
     "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5680 && electron .\"",
     "prep-electron": "node scripts/prepare-electron.js",
+    "create-mac-icon": "node scripts/create-mac-icon.js",
     "package:portable": "npm run prep-electron && electron-packager .electron-app \"WhatsApp Chat Viewer TR\" --platform=win32 --arch=x64 --out=portable --overwrite --asar --icon=icon.ico --app-version=%npm_package_version%",
     "package:portable:force-icon": "npm run package:portable && node scripts/force-icon.js",
     "package:installer": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& npm run package:portable && electron-builder --win nsis --config electron-builder.yml",

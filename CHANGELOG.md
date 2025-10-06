@@ -5,6 +5,12 @@ Tüm anlamlı değişiklikler bu dosyada listelenir. Bu proje Semantic Versionin
 ## [Unreleased]
 ### Eklendi
 - GitHub Releases tabanlı manuel ve sessiz açılışta otomatik güncelleme denetimi (Electron menü: "Güncellemeleri Denetle")
+- macOS için otomatik ikon dönüştürme scripti (icon.ico -> icon.icns)
+- GitHub Actions workflow'unda macOS build öncesi otomatik ikon oluşturma
+- `npm run create-mac-icon` komutu manuel ikon oluşturma için
+
+### Değişti
+- RELEASE_INSTRUCTIONS.md güncellendi: GitHub Actions otomatik build süreci dokümante edildi
 
 ## [3.2.1] - 2025-10-01
 ### Eklendi

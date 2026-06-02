@@ -67,8 +67,8 @@ Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exe
 
 **🇹🇷 Türkçe:**
 1. **Windows:**
-   - **Kurulum:** [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe) dosyasını indirip çalıştırın
-   - **Portable:** [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) dosyasını indirip ZIP'i çıkarın
+   - **Kurulum:** [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/3.2.4.Windows/WhatsApp.Chat.Viewer.TR.Setup.3.2.4.exe) dosyasını indirip çalıştırın
+   - **Portable:** [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/3.2.4.Windows/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip) dosyasını indirip ZIP'i çıkarın
 2. **macOS:**
    - [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg) dosyasını indirip açın
    - Uygulamayı Applications klasörüne sürükleyin
@@ -76,8 +76,8 @@ Son sürümü buradan indirebilirsiniz: [GitHub Releases](https://github.com/exe
 
 **🇺🇸 English:**
 1. **Windows:**
-   - **Installer:** Download and run [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-Setup-3.2.4.exe)
-   - **Portable:** Download and extract [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip)
+   - **Installer:** Download and run [WhatsApp Chat Viewer TR Setup 3.2.4.exe](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/3.2.4.Windows/WhatsApp.Chat.Viewer.TR.Setup.3.2.4.exe)
+   - **Portable:** Download and extract [WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/3.2.4.Windows/WhatsApp-Chat-Viewer-TR-portable-3.2.4.zip)
 2. **macOS:**
    - Download and open [WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg](https://github.com/exedesign/Whatsapp-Export-Viewer-Pro/releases/download/v3.2.4/WhatsApp-Chat-Viewer-TR-3.2.4-mac.dmg)
    - Drag the application to the Applications folder
